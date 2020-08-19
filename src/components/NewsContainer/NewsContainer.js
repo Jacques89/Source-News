@@ -11,15 +11,19 @@ export default class ContainerOfNews extends Component {
   })
 
   componentDidMount = async () => {
-      try {
-          const serverData = await axios('https://newscafapi.p.rapidapi.com/apirapid/news/world/?q=news&apikey=5fc79354damshc76091ac5b0282cp1a5221jsn2ab34185811c');
-          const response = await serverData.json();
-          this.setState({
-              news: response.articles
-          })
-      } catch (error) {
-          alert(error)
+    axios('https://newscafapi.p.rapidapi.com/apirapid/news/world/?q=news', {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "newscafapi.p.rapidapi.com",
+        "x-rapidapi-key": "5fc79354damshc76091ac5b0282cp1a5221jsn2ab34185811c"
       }
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   render() {
