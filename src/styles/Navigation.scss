@@ -13,6 +13,7 @@ h1 {
   font-family: 'Abril Fatface', serif;
   letter-spacing: 0.2rem;
   text-align: center;
+  cursor: pointer;
 }
 
 .icon-menu {
@@ -46,22 +47,19 @@ ul {
     font-size: 1.5rem;
     text-align: center;
     padding: 2rem, 0.5rem;
+    color: rgb(7, 6, 6);
+    cursor: pointer;
+    display: flex;
 
     a {
-      color: #000;
-      width: 100%;
-      height: 100%;
-      display: flex;
       align-items: center;
       justify-content: space-around;
     }
 
     &:hover {
       background-color: rgb(77, 66, 49);
-
-      a {
-        color: #fff;
-      }
+      color: #fff;
+      font-weight: 600;
     }
   }
 }
@@ -104,10 +102,7 @@ ul {
 
       &:hover {
         background-color: rgb(77, 66, 49);
-
-        a {
-            color: #fff;
-        }
+        color: #fff;
       }
     }
   }

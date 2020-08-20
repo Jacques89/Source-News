@@ -34,16 +34,15 @@ export default class Navigation extends Component {
   render() { 
     return (
       <header>
-        <h1>Source News</h1>
+        <h1 onClick={() => this.props.filterNews('')} >Source News</h1>
         <h3>Straight from the sources mouth</h3>
         <FaBars className='icon-menu' onClick={this.toggleMenu} />
         <nav style={{ display: this.isMenuOpen() }}>
           <ul>
-            <li><a href="#">Politics</a></li>
-            <li><a href="#">Economics</a></li>
-            <li><a href="#">Sport</a></li>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Technology</a></li>
+            <li onClick={() => this.props.filterNews('business')}>Business</li>
+            <li onClick={() => this.props.filterNews('sport')}>Sport</li>
+            <li onClick={() => this.props.filterNews('entertainment')}>Entertainment</li>
+            <li onClick={() => this.props.filterNews('technology')}>Technology</li>
           </ul>
         </nav>
       </header>
