@@ -3,7 +3,6 @@ import '../../styles/NewsBox.scss'
 
 export default class NewsBox extends Component {
   render () {
-    console.log(this.props)
     let article = this.props.article
     let title = article.title
     let description = article.description

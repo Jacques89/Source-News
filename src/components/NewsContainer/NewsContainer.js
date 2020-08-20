@@ -1,37 +1,47 @@
 import React, { Component } from 'react'
 
+import axios from 'axios'
+
 import LoadingPage from '../LoadingPage/LoadingPage'
 import NewsBox from '../NewsBox/NewsBox'
 import "../../styles/NewsContainer.scss"
 
-const proxyUrl  = "https://cors-anywhere.herokuapp.com/"
-const url = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=us&apiKey=a9c32aed281e41fdbd5a02a8bbc61cfd`
-
 export default class NewsContainer extends Component {
     state = ({
       news: [],
-      loading: false
+      loading: true
     })
 
     componentDidMount = async () => {
       try {
-        const serverData = await fetch(url)
-        const response = await serverData.json();
+        const serverDataSports = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=a9c32aed281e41fdbd5a02a8bbc61cfd');
+        const responseSports = await serverDataSports.json();
+        const serverDataTech = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=technology&apiKey=a9c32aed281e41fdbd5a02a8bbc61cfd');
+        const responseTech = await serverDataTech.json();
+        const serverDataBusiness = await fetch('http://newsapi.org/v2/top-headlines?country=gb&apiKey=a9c32aed281e41fdbd5a02a8bbc61cfd');
+        const responseBusiness = await serverDataBusiness.json();
+        const serverDataEntertainment = await fetch('http://newsapi.org/v2/top-headlines?country=gb&category=entertainment&apiKey=a9c32aed281e41fdbd5a02a8bbc61cfd');
+        const responseEntertainment = await serverDataEntertainment.json();
+
+        let allNews = responseSports.articles.concat(responseTech.articles, responseBusiness.articles, responseEntertainment.articles);
+        allNews = this.shuffleArray(allNews)
         this.setState({
-          news: response.articles,
+          news: allNews,
           loading: false
         })
       } catch (error) {
           alert(error)
       }
-  }
+    }
+
+    shuffleArray = array => array.sort(() => Math.random() - 0.5);
 
     render() {
       const { news } = this.state
-      let allArticles;
+      let articles
       if (news.length > 0) {
-          allArticles = news.map((article, i) => {
-              if (!article.description.includes('https')) {
+          articles = news.map((article, i) => {
+              if (article.description && !article.description.includes('http') && !article.description.includes('%20')) {
                   return (
                     <div className="box" key={i}><NewsBox key={i} article={article} /></div>
                   )
@@ -43,7 +53,7 @@ export default class NewsContainer extends Component {
 
       return (
         <div className="container" >
-          {allArticles}
+          {articles}
         </div>
       )
   }

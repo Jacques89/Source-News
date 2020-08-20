@@ -42,7 +42,7 @@ export default class Navigation extends Component {
             <li><a href="#">Politics</a></li>
             <li><a href="#">Economics</a></li>
             <li><a href="#">Sport</a></li>
-            <li><a href="#">Culture</a></li>
+            <li><a href="#">Business</a></li>
             <li><a href="#">Technology</a></li>
           </ul>
         </nav>
