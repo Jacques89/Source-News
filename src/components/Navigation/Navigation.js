@@ -10,23 +10,27 @@ export default class Navigation extends Component {
   } 
 
   toggleMenu = e => {
-    let toggle = !this.state.menuOpen
+    const toggle = !this.state.menuOpen
 
     this.setState({
-        menuOpen: toggle
+      menuOpen: toggle
     })
   }
 
   isMenuOpen = () => {
     if (this.state.menuOpen) {
-      return 'block'
-    } else {
-      return 'none'
+      return ({
+        display: 'block',
+        zIndex: '2'
+      }) 
+    }else {
+      return ({
+        display: 'none',
+        zIndex: '-1'
+      })
     }
   }
   
-    
-
   render() { 
     return (
       <header>

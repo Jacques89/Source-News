@@ -5,7 +5,7 @@ import "../../styles/NewsContainer.scss"
 
 export default class ContainerOfNews extends Component {
     state = ({
-        news: []
+      news: []
     })
 
     componentDidMount = async () => {
