@@ -1,0 +1,32 @@
+.search-bar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+
+  .search-icon {
+      color: #fff;
+
+  }
+
+  input {
+      padding: 0.5rem;
+      border-radius: 10px;
+      border: none;
+      margin-left: 0.5rem;
+      width: 12rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .search-bar {
+      top: 105px;
+      left: 10px;
+
+      input {
+          width: 8rem;
+      }
+  }
+}

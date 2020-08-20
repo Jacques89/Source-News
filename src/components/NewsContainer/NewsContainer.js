@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import axios from 'axios'
-
 import LoadingPage from '../LoadingPage/LoadingPage'
 import NewsBox from '../NewsBox/NewsBox'
 import "../../styles/NewsContainer.scss"
+
+import SearchInput from '../SearchInput/SearchInput'
 
 export default class NewsContainer extends Component {
     state = ({
@@ -75,6 +75,7 @@ export default class NewsContainer extends Component {
 
       return (
         <div className="container" >
+          <SearchInput passInput={this.props.passInput} />
           {articles}
         </div>
       )

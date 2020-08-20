@@ -20,6 +20,7 @@ h1 {
   font-size: 2rem;
   cursor: pointer;
   margin: 0.5rem 0;
+  z-index: 90;
 
   &:hover {
       color: rgb(77, 66, 49);
@@ -105,5 +106,12 @@ ul {
         color: #fff;
       }
     }
+  }
+}
+
+@media screen and (max-width: 400px){
+  .icon-menu {
+    margin: 0.5rem;
+    align-self: flex-end;
   }
 }
