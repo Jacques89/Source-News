@@ -1,28 +1,30 @@
 import React, { Component } from 'react'
 
+import LoadingPage from '../LoadingPage/LoadingPage'
 import NewsBox from '../NewsBox/NewsBox'
 import "../../styles/NewsContainer.scss"
 
-export default class ContainerOfNews extends Component {
+const proxyUrl  = "https://cors-anywhere.herokuapp.com/"
+const url = `${proxyUrl}https://newsapi.org/v2/top-headlines?country=us&apiKey=a9c32aed281e41fdbd5a02a8bbc61cfd`
+
+export default class NewsContainer extends Component {
     state = ({
-      news: []
+      news: [],
+      loading: false
     })
 
     componentDidMount = async () => {
-      fetch('https://newscafapi.p.rapidapi.com/apirapid/news/world/?q=news', {
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-host": "newscafapi.p.rapidapi.com",
-          "x-rapidapi-key": "5fc79354damshc76091ac5b0282cp1a5221jsn2ab34185811c"
-        }
-      })
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-    }
+      try {
+        const serverData = await fetch(url)
+        const response = await serverData.json();
+        this.setState({
+          news: response.articles,
+          loading: false
+        })
+      } catch (error) {
+          alert(error)
+      }
+  }
 
     render() {
       const { news } = this.state
@@ -35,21 +37,13 @@ export default class ContainerOfNews extends Component {
                   )
               }
           })
-        return allArticles
-      }
-
+        } else {
+          return <LoadingPage />
+        }
 
       return (
         <div className="container" >
           {allArticles}
-          {/* <div className="box box1"><NewBox /></div>
-          <div className="box box2"><NewBox /></div>
-          <div className="box box3"><NewBox /></div>
-          <div className="box box4"><NewBox /></div>
-          <div className="box box5"><NewBox /></div>
-          <div className="box box6"><NewBox /></div>
-          <div className="box box7"><NewBox /></div>
-          <div className="box box8"><NewBox /></div> */}
         </div>
       )
   }
