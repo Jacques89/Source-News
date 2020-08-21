@@ -8,7 +8,6 @@ export default class App extends Component {
 
   state = {
     topic: '',
-    input: ''
   }
 
   filterNews = topic => {
@@ -16,14 +15,7 @@ export default class App extends Component {
       topic: topic
     })
   }
-
-  passInput = input => {
-    this.setState({
-      input: input
-    })
-    console.log(this.state.input);
-  }
-
+  
   render() {
     return (
       <div>

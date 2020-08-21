@@ -9,10 +9,16 @@ import SearchInput from '../SearchInput/SearchInput'
 export default class NewsContainer extends Component {
   state = ({
     news: [],
-    loading: true
+    loading: true,
+    input: '',
+    topic: this.props.currentTopic
   })
 
-  componentDidMount = async () => {
+  componentDidMount() {
+    this.fetchData()
+  }
+
+  fetchData = async () => {
     try {
       const serverDataSports = await fetch('https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=a9c32aed281e41fdbd5a02a8bbc61cfd')
       const responseSports = await serverDataSports.json();
@@ -44,11 +50,11 @@ export default class NewsContainer extends Component {
 
   shuffleArray = array => array.sort(() => Math.random() - 0.5)
 
-  filterNews = currentTopic => {
-    let newState = this.state.news.filter(el => el.topic === this.props.currentTopic)
+  passInput = input => {
     this.setState({
-      news: newState
+        input: input
     })
+    console.log(this.state.input);
   }
 
   render() {
@@ -57,28 +63,28 @@ export default class NewsContainer extends Component {
 
     let articles
 
+    // !article.description.includes('https') &&
+    // !article.description.includes('%20') &&
+    // article.urlToImage.includes('https') &&
+
     if (news.length > 0) {
-      articles = news.map((article, i) => {
-        if (article.description && !article.description.includes('https') && !article.description.includes('%20') && topic === '') {
-          return (
-            <div className="box" key={i}><NewsBox key={i} article={article} /></div>
-          )
-        }
-        else if (article.description && !article.description.includes('https') && !article.description.includes('%20') && article.topic === topic) {
-          return (
-            <div className="box" key={i}>
-              <NewsBox key={i} article={article} />
-            </div>
-          )
-        } 
-      })
+      articles = news
+        .filter(article => article.title.toLocaleLowerCase().indexOf(this.state.input.toLocaleLowerCase()) !== -1)
+        .map((article, i) => {
+          if (article.description &&
+            (topic === '' ||  topic === article.topic )) {
+              return (
+                <div className="box" key={i}><NewsBox key={i} article={article} /></div>
+              )
+            }
+        })
     } else {
       return <LoadingPage />
     }
 
     return (
       <div className="container" >
-        <SearchInput passInput={this.props.passInput} />
+        <SearchInput passInput={this.passInput} />
         {articles}
       </div>
     )
