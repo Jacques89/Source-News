@@ -23,7 +23,7 @@ const NewsContainer = ({ news, topic, userInput }) => {
         }
       })
     )
-  }, [news, topic])
+  }, [news, topic, userInput])
  
 
   return (

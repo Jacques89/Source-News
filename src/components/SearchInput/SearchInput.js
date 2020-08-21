@@ -17,7 +17,7 @@ const SearchInput = ({ handleSubmit }) => {
       action="search-news" 
       className="search-bar" 
       onSubmit={(e) => { e.preventDefault(); handleSubmit(input); setInput('') }}>
-      <FaSearch className="search-icon" />
+      <button className="search-btn"><FaSearch className="search-icon" /></button>
       <input type="text" onChange={getInput} value={input} />
     </form>
   )
