@@ -6,6 +6,7 @@ import Navigation from './components/Navigation/Navigation'
 import NewsContainer from './components/NewsContainer/NewsContainer'
 import LoadingPage from './components/LoadingPage/LoadingPage'
 import SearchInput from './components/SearchInput/SearchInput'
+import Footer from './components/Footer/Footer'
 
 
 const App = () => {
@@ -52,7 +53,6 @@ const App = () => {
     setUserInput('')
   } 
   const handleSubmit = input => {
-    console.log('SavedInput', input)
     setUserInput(input)
   } 
   
@@ -63,6 +63,7 @@ const App = () => {
       <SearchInput handleSubmit={handleSubmit} />
       {news.length > 1 ? <NewsContainer news={news} topic={topic} userInput={userInput} /> : null}
       {loading ? <LoadingPage /> : null}
+      {news.length > 0 ? <Footer /> : null}
     </div>
   )
 }

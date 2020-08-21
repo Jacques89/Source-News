@@ -29,6 +29,7 @@ const NewsContainer = ({ news, topic, userInput }) => {
   return (
     <div className="container" >
       {articles}
+      <p className="no-news">No news related to '{userInput}'</p>
     </div>
   )
 }
