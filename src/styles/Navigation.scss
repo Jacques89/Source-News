@@ -36,6 +36,15 @@ h1 {
   &:hover {
       color: rgb(7, 2, 2);
   }
+
+  @media screen and (min-width: 670px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 450px){
+    margin: 0.5rem 1rem 0.5rem;
+    align-self: flex-end;
+  }
 }
 
 nav {
@@ -51,7 +60,11 @@ ul {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 14.5rem;
+  top: 12.3rem;
+
+  @media screen and (min-width: 420px) {
+    top: 145px;
+  }
 
   li {
     width: 100%;
@@ -76,10 +89,6 @@ ul {
 @media screen and (min-width: 670px) {
   h1 {
     font-size: 5rem;
-  }
-
-  .icon-menu {
-    display: none;
   }
 
   nav {
@@ -115,12 +124,5 @@ ul {
         color: #fff;
       }
     }
-  }
-}
-
-@media screen and (max-width: 450px){
-  .icon-menu {
-    margin: 0.5rem 1rem 0.5rem;
-    align-self: flex-end;
   }
 }

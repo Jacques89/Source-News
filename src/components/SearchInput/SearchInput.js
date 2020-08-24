@@ -18,7 +18,7 @@ const SearchInput = ({ handleSubmit }) => {
 
   return (
     <animated.form style={topAnimation} action="#" className="search-bar" onSubmit={(e) => { e.preventDefault(); handleSubmit(input); setInput('') }} >
-      <input type="text" onChange={getInput} value={input} /><button className="search-btn"><FaSearch className="search-icon" /></button>
+      <FaSearch className="search-icon" /><input type="text" onChange={getInput} value={input} /><button className="search-btn"></button>
     </animated.form>
 )
 }
