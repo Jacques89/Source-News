@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
+import { useSpring, animated } from 'react-spring'
+
 import NewsBox from '../NewsBox/NewsBox'
 import "../../styles/NewsContainer.scss"
 
 const NewsContainer = ({ news, topic, userInput }) => {
 
   const [articles, setArticles] = useState([])
+  const articleAnimation = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' } })
+  const noNewsAnimation = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '2s'} })
 
   useEffect(() => {
     setArticles(
@@ -16,7 +20,7 @@ const NewsContainer = ({ news, topic, userInput }) => {
         typeof article.urlToImage === 'string' && !article.description.includes('https') && (topic === '' ||
         topic === article.topic)) {
           return (
-            <div className="box" key={i}><NewsBox key={i} article={article} /></div>
+            <animated.div style={articleAnimation} className="box" key={i}><NewsBox key={i} article={article} /></animated.div>
           )
         } else {
           return null
@@ -28,8 +32,9 @@ const NewsContainer = ({ news, topic, userInput }) => {
 
   return (
     <div className="container" >
-      {articles}
-      <p className="no-news">No news related to '{userInput}'</p>
+      {
+        news.filter(article => article.title.toLocaleLowerCase().includes(userInput.toLocaleLowerCase())).length > 0 ? articles : <animated.p style={noNewsAnimation} className="no-news">No news related to '{userInput}'</animated.p>
+      }
     </div>
   )
 }

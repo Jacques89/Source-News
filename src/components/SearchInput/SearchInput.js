@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
-import '../../styles/SearchForm.scss'
+
 import { FaSearch } from 'react-icons/fa'
+import { useSpring, animated } from 'react-spring'
+
+import '../../styles/SearchForm.scss'
 
 const SearchInput = ({ handleSubmit }) => { 
 
   const [input, setInput] = useState('')
+  const topAnimation = useSpring({ marginTop: 0, from: { marginTop: -1000, transitionDuration: '.8s' } })
 
   const getInput = e => {
     setInput(e.target.value)
@@ -13,14 +17,10 @@ const SearchInput = ({ handleSubmit }) => {
   console.log('SearchInput', input)
 
   return (
-    <form 
-      action="search-news" 
-      className="search-bar" 
-      onSubmit={(e) => { e.preventDefault(); handleSubmit(input); setInput('') }}>
-      <button className="search-btn"><FaSearch className="search-icon" /></button>
-      <input type="text" onChange={getInput} value={input} />
-    </form>
-  )
+    <animated.form style={topAnimation} action="#" className="search-bar" onSubmit={(e) => { e.preventDefault(); handleSubmit(input); setInput('') }} >
+      <input type="text" onChange={getInput} value={input} /><button className="search-btn"><FaSearch className="search-icon" /></button>
+    </animated.form>
+)
 }
 
 export default SearchInput

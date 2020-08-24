@@ -40,16 +40,16 @@ h1 {
 
 nav {
   width: 100%;
-  height: calc(100vh - 145px);
-  display: none;
+  height: calc(100vh - 123px);
+  display: flex;
+  background-color: antiquewhite;;
 }
 
 ul {
   width: 100%;
-  height: calc(100% - 145px);
+  height: calc(100% - 123px);
   display: flex;
   flex-direction: column;
-  background-color: antiquewhite;
   position: absolute;
   top: 14.5rem;
 
@@ -62,11 +62,8 @@ ul {
     color: rgb(7, 6, 6);
     cursor: pointer;
     display: flex;
-
-    a {
-      align-items: center;
-      justify-content: space-around;
-    }
+    justify-content: space-around;
+    transition-duration: 0.2s;
 
     &:hover {
       background-color: rgb(7, 2, 2);
@@ -89,6 +86,7 @@ ul {
     display: block !important;
     z-index: 0 !important;
     height: auto;
+    background-color: antiquewhite;
   }
 
   ul {
