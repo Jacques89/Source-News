@@ -5,34 +5,32 @@ import { useSpring, animated } from 'react-spring'
 import NewsBox from '../NewsBox/NewsBox'
 import "../../styles/NewsContainer.scss"
 
-const NewsContainer = ({ news, topic, userInput }) => {
+const NewsContainer = ({ news, category, userInput }) => {
 
-  const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState('')
   const articleAnimation = useSpring({ opacity: 1, from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' } })
 
   useEffect(() => {
     setArticles(
       news
-      .filter(article => article.title.toLocaleLowerCase().indexOf(userInput.toLocaleLowerCase()) !== -1)
-      .map((article, i) => {
-        if (article.description &&
-        typeof article.urlToImage === 'string' && !article.description.includes('https') && (topic === '' ||
-        topic === article.topic)) {
-          return (
-            <animated.div style={articleAnimation} className="box" key={i}><NewsBox key={i} article={article} /></animated.div>
-          )
-        } else {
-          return null
-        }
-      })
+      .filter(article => article.category === category)
+      .map((article, i) => 
+        <animated.div style={articleAnimation} className="box" key={i}><NewsBox key={i} article={article} /></animated.div>
+      )
     )
-  }, [news, topic, userInput])
+  }, [userInput, category])
  
 
   return (
     <div className="container" >
       {
-        news.filter(article => article.title.toLocaleLowerCase().includes(userInput.toLocaleLowerCase())).length > 0 ? articles : <p className="no-news">No news related to '{userInput}'</p>
+        articles &&
+        !userInput && articles.length === 0 ?
+        `Sorry, there are no news with the category ${category}`
+        : userInput && articles.length === 0 ?
+          `Sorry, there are no news related to "${userInput}" in the category ${category}`
+          :
+          articles
       }
     </div>
   )
