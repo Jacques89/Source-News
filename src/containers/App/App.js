@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
-import './App.scss'
+import '../../styles/App.scss'
 
-import Navigation from './components/Navigation/Navigation'
-import NewsContainer from './components/NewsContainer/NewsContainer'
-import LoadingPage from './components/LoadingPage/LoadingPage'
-import SearchInput from './components/SearchInput/SearchInput'
-import Footer from './components/Footer/Footer'
+import Navigation from '../../components/Navigation/Navigation'
+import NewsContainer from '../NewsContainer/NewsContainer'
+import LoadingPage from '../../components/LoadingPage/LoadingPage'
+import SearchInput from '../../components/SearchInput/SearchInput'
+import Footer from '../../components/Footer/Footer'
 
 
 const App = () => {

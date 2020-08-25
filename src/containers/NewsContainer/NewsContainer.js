@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { useSpring, animated } from 'react-spring'
 
-import NewsBox from '../NewsBox/NewsBox'
+import NewsBox from '../../components/NewsBox/NewsBox'
 import "../../styles/NewsContainer.scss"
 
 const NewsContainer = ({ news, category, userInput }) => {
