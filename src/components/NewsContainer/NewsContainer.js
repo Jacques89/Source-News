@@ -18,17 +18,18 @@ const NewsContainer = ({ news, category, userInput }) => {
         <animated.div style={articleAnimation} className="box" key={i}><NewsBox key={i} article={article} /></animated.div>
       )
     )
-  }, [userInput, category])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInput, category, news])
  
 
   return (
-    <div className="container" >
+    <div className="container">
       {
         articles &&
         !userInput && articles.length === 0 ?
-        `Sorry, there are no news with the category ${category}`
+        `Sorry, there is no news in ${category} currently available`
         : userInput && articles.length === 0 ?
-          `Sorry, there are no news related to "${userInput}" in the category ${category}`
+          `Sorry, there is no news currently available to ${userInput} in the ${category} category`
           :
           articles
       }

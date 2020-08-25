@@ -13,7 +13,6 @@ const App = () => {
   const [news, setNews] = useState([])
   const [category, setCategory] = useState('')
   const [loading, setLoading] = useState(true)
-  
   const [userInput, setUserInput] = useState('')
 
   const dataFetch = async() => {
@@ -24,7 +23,7 @@ const App = () => {
           "x-rapidapi-host": "newscafapi.p.rapidapi.com",
           "x-rapidapi-key": "5fc79354damshc76091ac5b0282cp1a5221jsn2ab34185811c"
         }
-      });
+      })
       let response = await request.json()
       console.log(response)
       setNews(response)
@@ -43,8 +42,8 @@ const App = () => {
   } 
   
   useEffect(() => {
-    dataFetch();
-    setCategory('Business');
+    dataFetch()
+    setCategory('World')
   }, [])
  
   return (

@@ -14,11 +14,19 @@ const SearchInput = ({ handleSubmit }) => {
     setInput(e.target.value)
   }
 
-  console.log('SearchInput', input)
-
   return (
-    <animated.form style={topAnimation} action="#" className="search-bar" onSubmit={(e) => { e.preventDefault(); handleSubmit(input); setInput('') }} >
-      <FaSearch className="search-icon" /><input type="text" onChange={getInput} value={input} /><button className="search-btn"></button>
+    <animated.form
+      className="search-bar"
+      style={topAnimation} 
+      action="#" 
+      onSubmit={(e) => { 
+        e.preventDefault(); 
+        handleSubmit(input); 
+        setInput('') 
+      }}>
+      <FaSearch className="search-icon" />
+        <input type="text" onChange={getInput} value={input} />
+        <button className="search-btn"></button>
     </animated.form>
 )
 }
