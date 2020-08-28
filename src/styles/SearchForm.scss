@@ -29,7 +29,7 @@
 
 @media screen and (max-width: 670px) {
   .search-bar {
-    top: 105px;
+    top: 150px;
     left: 10px;
 
     input {
@@ -40,7 +40,18 @@
 
 @media screen and (max-width: 420px) {
   .search-bar {
-    top: 85px;
+    top: 150px;
+    left: 10px;
+  
+    .input {
+      width: 8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search-bar {
+    top: 150px;
     left: 10px;
   
     .input {
