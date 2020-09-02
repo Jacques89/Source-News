@@ -31,6 +31,5 @@ describe('App', () => {
     )
     const response = await dataFetch()
     expect(response).toEqual(mockData)
-    render(<App />)
   })
 })
