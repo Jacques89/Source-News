@@ -47,9 +47,9 @@ const App = () => {
   }, [])
  
   return (
-    <div>
+    <div data-testid='app'>
       <Navigation changeCategory={changeCategory} category={category} />
-      <SearchInput handleSubmit={handleSubmit} />
+      <SearchInput handleSubmit={handleSubmit} testID='searchInput' />
       {news.length > 1 ? <NewsContainer news={news} category={category} userInput={userInput} /> : null}
       {loading ? <LoadingPage /> : null}
       {news.length > 0 ? <Footer /> : null}
