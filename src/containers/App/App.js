@@ -17,13 +17,9 @@ const App = () => {
 
   const dataFetch = async() => {
     try {
-      const request = await fetch("https://newscafapi.p.rapidapi.com/apirapid/news/", {
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-host": "newscafapi.p.rapidapi.com",
-          "x-rapidapi-key": "5fc79354damshc76091ac5b0282cp1a5221jsn2ab34185811c"
-        }
-      })
+      const request = await fetch(
+        'https://newscafapi.p.rapidapi.com/apirapid/news/?rapidapi-key=5fc79354damshc76091ac5b0282cp1a5221jsn2ab34185811c'
+      )
       let response = await request.json()
       console.log(response)
       setNews(response)
