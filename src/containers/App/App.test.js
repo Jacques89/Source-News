@@ -1,7 +1,7 @@
 import React from 'react'
-import App, { dataFetch } from './App'
+import App from './App'
 
-import { render, screen, wait } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 describe('App', () => {
   describe('when the fetch operation is pending', () => {
@@ -22,13 +22,13 @@ describe('App', () => {
       name: 'sports-news'
       }
     ]
-    const getNews = jest.fn(url => mockNews)
+    const dataFetch = jest.fn(url => mockNews)
     it('returns news from an api call', () => {
-      expect(getNews(mockUrl)).toBe(mockNews)
-      console.log(getNews)
+      expect(dataFetch(mockUrl)).toBe(mockNews)
+      console.log(dataFetch)
     })
     it('called getNews with a mockUrl', () => {
-      expect(getNews).toHaveBeenCalledWith(mockUrl)
+      expect(dataFetch).toHaveBeenCalledWith(mockUrl)
     })
   })
 })
