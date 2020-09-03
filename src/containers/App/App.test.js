@@ -12,24 +12,19 @@ describe('App', () => {
     })
   })
 
-  const dataFetch = jest.fn()
-
-  const mockData = [
-    {
-      id: 1,
-      title: 'world-news'
-    },
-    {
-      id: 2,
-      title: 'sports-news'
-    }
-  ]
-
-  it('fetches data from server when server returns a successful response', async () => {
-    dataFetch.mockResolvedValueOnce(
-      mockData
-    )
-    const response = await dataFetch()
-    expect(response).toEqual(mockData)
+  describe('MockAPI', () => {
+    const mockUrl = '/api/news'
+    const mockNews = [{ 
+      name: 'world-news', 
+      name: 'sports-news' 
+    }]
+    const getNews = jest.fn(url => mockNews)
+    it('returns news from an api call', () => {
+      expect(getNews(mockUrl)).toBe(mockNews)
+      console.log(getNews)
+    })
+    it('called getNews with a mockUrl', () => {
+      expect(getNews).toHaveBeenCalledWith(mockUrl)
+    })
   })
 })
