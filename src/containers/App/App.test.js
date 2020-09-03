@@ -12,21 +12,26 @@ describe('App', () => {
     })
   })
 
-  describe('MockAPI', () => {
-    const mockUrl = '/api/news'
-    const mockNews = [
-      { 
-        name: 'world-news',
+  const mockNews = {
+    news: [
+      {
+        category: 'World'
       },
-      { 
-      name: 'sports-news'
+      {
+        category: 'Sports'
       }
     ]
+  }
+
+  describe('MockAPI', () => {
+    const mockUrl = '/api/news'
     const dataFetch = jest.fn(url => mockNews)
+
     it('returns news from an api call', () => {
       expect(dataFetch(mockUrl)).toBe(mockNews)
       console.log(dataFetch)
     })
+    
     it('called getNews with a mockUrl', () => {
       expect(dataFetch).toHaveBeenCalledWith(mockUrl)
     })
