@@ -14,10 +14,14 @@ describe('App', () => {
 
   describe('MockAPI', () => {
     const mockUrl = '/api/news'
-    const mockNews = [{ 
-      name: 'world-news', 
-      name: 'sports-news' 
-    }]
+    const mockNews = [
+      { 
+        name: 'world-news',
+      },
+      { 
+      name: 'sports-news'
+      }
+    ]
     const getNews = jest.fn(url => mockNews)
     it('returns news from an api call', () => {
       expect(getNews(mockUrl)).toBe(mockNews)
