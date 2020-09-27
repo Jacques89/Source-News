@@ -15,10 +15,12 @@ const App = () => {
   const [loading, setLoading] = useState(true)
   const [userInput, setUserInput] = useState('')
 
+  const newsAPI = process.env.REACT_APP_NEWS_API
+
   const dataFetch = async() => {
     try {
       const request = await fetch(
-        'https://newscafapi.p.rapidapi.com/apirapid/news/?rapidapi-key=5fc79354damshc76091ac5b0282cp1a5221jsn2ab34185811c'
+        newsAPI
       )
       let response = await request.json()
       console.log(response)
