@@ -4,7 +4,7 @@ import '../../styles/NewsBox.scss'
 const NewsBox = ({ article }) => {
   return (
     <article>
-      <h3 className="title">{article.title}</h3>
+      <h3 className="title" testID='article-title'>{article.title}</h3>
       <div className="image" style={{ backgroundImage: `url("${article.img}")` }}></div>
       <p className="description">
         {article.content}
