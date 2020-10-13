@@ -15,7 +15,9 @@ const NewsContainer = ({ news, category, userInput }) => {
       news
       .filter(article => article.category === category)
       .map((article, i) => 
-        <animated.div style={articleAnimation} className="box" key={i}><NewsBox key={i} article={article} /></animated.div>
+        <animated.div style={articleAnimation} className="box" key={i}>
+          <NewsBox key={i} article={article} />
+        </animated.div>
       )
     )
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -25,7 +27,7 @@ const NewsContainer = ({ news, category, userInput }) => {
   const noNewsUserInput = `Sorry, there is no news currently available to ${userInput} in ${category}`
 
   return (
-    <div className="container">
+    <div className="container" data-testid='NewsContainer'>
       {
         articles &&
         !userInput && articles.length === 0 ?
