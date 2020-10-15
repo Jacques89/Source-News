@@ -23,7 +23,6 @@ const App = () => {
         newsAPI
       )
       let response = await request.json()
-      console.log(response)
       setNews(response)
       setLoading(false)
     } catch (error) {

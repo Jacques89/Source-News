@@ -3,10 +3,10 @@ import '../../styles/NewsBox.scss'
 
 const NewsBox = ({ article }) => {
   return (
-    <article>
-      <h3 className="title" testID='article-title'>{article.title}</h3>
-      <div className="image" style={{ backgroundImage: `url("${article.img}")` }}></div>
-      <p className="description">
+    <article data-testid='article'>
+      <h3 className="title" data-testid='article-title'>{article.title}</h3>
+      <div className="image" data-testid='article-image' style={{ backgroundImage: `url("${article.img}")` }}></div>
+      <p className="description" data-testid='article-content'>
         {article.content}
       </p>
       <p className="link">

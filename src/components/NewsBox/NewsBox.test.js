@@ -1,19 +1,32 @@
 import React from 'react'
 import NewsBox from './NewsBox'
 
-import { shallow } from 'enzyme'
 import { render, screen, act } from '@testing-library/react'
 
-const setup = () => {
-  let props = {
-    article: 'article-title'
-  }
-  return {props}
-}
-
 describe('NewsBox', () => {
-  const { wrapper } = setup()
-  it('renders correctly with an article-title', async() => {
-    render(<NewsBox article={setup} />)
-  })  
+  const props = {
+    article: 'article-title',
+    image: 'news.png',
+    description: 'News description'
+  }
+
+  it('renders the NewsBox component correctly', () => {
+    const NewsBoxComponent = render(<NewsBox {...props} />)
+    expect(NewsBoxComponent).toMatchSnapshot()
+  })
+  
+  it('renders with an article-title', async() => {
+    const { getByTestId } = render(<NewsBox {...props} />)
+    expect(getByTestId('article-title')).toBeTruthy()
+  })
+
+  it('renders with a background image', () => {
+    const { getByTestId } = render(<NewsBox {...props} />)
+    expect(getByTestId('article-image')).toBeTruthy()
+  })
+
+  it('renders with article content', () => {
+    const { getByTestId } = render(<NewsBox {...props} />)
+    expect(getByTestId('article-content')).toBeTruthy()
+  })
 })
