@@ -15,4 +15,4 @@ const NewsBox = ({ article }) => {
     </article>
   )
 }
-export default NewsBox 
+export default NewsBox
