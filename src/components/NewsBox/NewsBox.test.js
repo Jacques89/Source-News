@@ -1,7 +1,7 @@
 import React from 'react'
 import NewsBox from './NewsBox'
 
-import { render, screen, act } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react' 
 
 describe('NewsBox', () => {
   const props = {
