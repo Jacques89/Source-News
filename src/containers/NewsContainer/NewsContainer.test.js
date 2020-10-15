@@ -1,21 +1,21 @@
 import React from 'react'
 import NewsContainer from './NewsContainer'
 
-import { shallow } from 'enzyme'
+import { render, screen, act } from '@testing-library/react'
 
 describe('NewsContainer', () => {
-  let wrapper
-  beforeEach(() => (
-  wrapper = shallow(<NewsContainer />)
-))
-
-  it('renders correctly', () => {
-    const wrapper = shallow(<NewsContainer />)
-  
-    expect(wrapper).toMatchSnapshot()
+  const props = {
+    news: [],
+    category: 'News Categpry',
+    userInput: 'User-Input'
+  }
+  it('renders the NewsContainer correctly', () => {
+    const NewsContainerMock = render(<NewsContainer {...props} />)
+    expect(NewsContainerMock).toMatchSnapshot()
   })
 
   it('should render a <div>', () => {
-    expect(wrapper.find('div').length).toEqual(1)
+    const { getByTestId } = render(<NewsContainer {...props} />)
+    expect(getByTestId('NewsContainer')).toBeTruthy()
   })
 })
