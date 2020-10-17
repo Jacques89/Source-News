@@ -21,17 +21,17 @@ describe('NewsBox', () => {
     expect(getByTestId('article-title')).toBeTruthy()
   })
 
-  it('renders with a background image', () => {
+  it('renders with a background image', async() => {
     const { getByTestId } = render(<NewsBox {...props} />)
     expect(getByTestId('article-image')).toBeTruthy()
   })
 
-  it('renders with article content', () => {
+  it('renders with article content', async() => {
     const { getByTestId } = render(<NewsBox {...props} />)
     expect(getByTestId('article-content')).toBeTruthy()
   })
 
-  it('renders with a link to an external site', () => {
+  it('renders with a link to an external site', async() => {
     const { getByTestId } = render(<NewsBox {...props} />)
     expect(getByTestId('external-link')).toBeTruthy()
   })
