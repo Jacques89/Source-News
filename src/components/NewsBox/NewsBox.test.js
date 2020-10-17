@@ -1,13 +1,14 @@
 import React from 'react'
 import NewsBox from './NewsBox'
 
-import { render, screen, act } from '@testing-library/react' 
+import { render, screen, act, fireEvent } from '@testing-library/react' 
 
 describe('NewsBox', () => {
   const props = {
     article: 'article-title',
     image: 'news.png',
-    description: 'News description'
+    description: 'News description',
+    source: 'https://externalsource.com'
   }
 
   it('renders the NewsBox component correctly', () => {
@@ -28,5 +29,20 @@ describe('NewsBox', () => {
   it('renders with article content', () => {
     const { getByTestId } = render(<NewsBox {...props} />)
     expect(getByTestId('article-content')).toBeTruthy()
+  })
+
+  it('renders with a link to an external site', () => {
+    const { getByTestId } = render(<NewsBox {...props} />)
+    expect(getByTestId('external-link')).toBeTruthy()
+  })
+
+  it('should navigate to an external site when link is clicked', () => {
+    const { getByText } = render(<a href="https://sourcetest.com/">Continue reading</a>)
+
+    const link = getByText('Continue reading')
+
+    fireEvent.click(link)
+
+    expect(getByText('Continue reading').href).toBe('https://sourcetest.com/')
   })
 })

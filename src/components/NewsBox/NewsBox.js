@@ -10,7 +10,9 @@ const NewsBox = ({ article }) => {
         {article.content}
       </p>
       <p className="link">
-        <a href={article.source_url}>Continue reading</a>
+        <a href={article.source_url} data-testid='external-link'>
+          Continue reading
+        </a>
       </p>
     </article>
   )

@@ -24,7 +24,9 @@ Object {
         <p
           class="link"
         >
-          <a>
+          <a
+            data-testid="external-link"
+          >
             Continue reading
           </a>
         </p>
@@ -51,7 +53,9 @@ Object {
       <p
         class="link"
       >
-        <a>
+        <a
+          data-testid="external-link"
+        >
           Continue reading
         </a>
       </p>
