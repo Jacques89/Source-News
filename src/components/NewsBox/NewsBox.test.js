@@ -17,6 +17,11 @@ describe('NewsBox', () => {
     const NewsBoxComponent = render(wrapper)
     expect(NewsBoxComponent).toMatchSnapshot()
   })
+
+  it('renders an article <div>', async() => {
+    await act(async() => render(wrapper))
+    expect(screen.getByTestId('article')).toBeTruthy()
+  })
   
   it('renders with an article-title', async() => {
     await act(async() => render(wrapper))
