@@ -1,7 +1,6 @@
 import React from 'react'
 import App from './App'
 
-import { shallow } from 'enzyme'
 import { render, screen, act } from '@testing-library/react'
 
 global.fetch = jest.fn(() => Promise.resolve({

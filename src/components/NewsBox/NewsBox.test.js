@@ -10,30 +10,32 @@ describe('NewsBox', () => {
     description: 'News description',
     source: 'https://externalsource.com'
   }
+  
+  const wrapper = <NewsBox {...props} />
 
   it('renders the NewsBox component correctly', () => {
-    const NewsBoxComponent = render(<NewsBox {...props} />)
+    const NewsBoxComponent = render(wrapper)
     expect(NewsBoxComponent).toMatchSnapshot()
   })
   
   it('renders with an article-title', async() => {
-    const { getByTestId } = render(<NewsBox {...props} />)
-    expect(getByTestId('article-title')).toBeTruthy()
+    await act(async() => render(wrapper))
+    expect(screen.getByTestId('article-title')).toBeTruthy()
   })
 
   it('renders with a background image', async() => {
-    const { getByTestId } = render(<NewsBox {...props} />)
-    expect(getByTestId('article-image')).toBeTruthy()
+    await act(async() => render(wrapper))
+    expect(screen.getByTestId('article-image')).toBeTruthy()
   })
 
   it('renders with article content', async() => {
-    const { getByTestId } = render(<NewsBox {...props} />)
-    expect(getByTestId('article-content')).toBeTruthy()
+    await act(async() => render(wrapper))
+    expect(screen.getByTestId('article-content')).toBeTruthy()
   })
 
   it('renders with a link to an external site', async() => {
-    const { getByTestId } = render(<NewsBox {...props} />)
-    expect(getByTestId('external-link')).toBeTruthy()
+    await act(async() => render(wrapper))
+    expect(screen.getByTestId('external-link')).toBeTruthy()
   })
 
   it('should navigate to an external site when link is clicked', () => {
