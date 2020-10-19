@@ -18,30 +18,30 @@ describe('NewsBox', () => {
     expect(NewsBoxComponent).toMatchSnapshot()
   })
 
-  it('renders an article <div>', async() => {
-    await act(async() => render(wrapper))
-    expect(screen.getByTestId('article')).toBeTruthy()
-  })
+  // it('renders an article <div>', async() => {
+  //   await act(async() => render(wrapper))
+  //   expect(screen.getByTestId('article')).toBeTruthy()
+  // })
   
-  it('renders with an article-title', async() => {
-    await act(async() => render(wrapper))
-    expect(screen.getByTestId('article-title')).toBeTruthy()
-  })
+  // it('renders with an article-title', async() => {
+  //   await act(async() => render(wrapper))
+  //   expect(screen.getByTestId('article-title')).toBeTruthy()
+  // })
 
-  it('renders with a background image', async() => {
-    await act(async() => render(wrapper))
-    expect(screen.getByTestId('article-image')).toBeTruthy()
-  })
+  // it('renders with a background image', async() => {
+  //   await act(async() => render(wrapper))
+  //   expect(screen.getByTestId('article-image')).toBeTruthy()
+  // })
 
-  it('renders with article content', async() => {
-    await act(async() => render(wrapper))
-    expect(screen.getByTestId('article-content')).toBeTruthy()
-  })
+  // it('renders with article content', async() => {
+  //   await act(async() => render(wrapper))
+  //   expect(screen.getByTestId('article-content')).toBeTruthy()
+  // })
 
-  it('renders with a link to an external site', async() => {
-    await act(async() => render(wrapper))
-    expect(screen.getByTestId('external-link')).toBeTruthy()
-  })
+  // it('renders with a link to an external site', async() => {
+  //   await act(async() => render(wrapper))
+  //   expect(screen.getByTestId('external-link')).toBeTruthy()
+  // })
 
   it('should navigate to an external site when link is clicked', () => {
     const { getByText } = render(<a href="https://sourcetest.com/">Continue reading</a>)

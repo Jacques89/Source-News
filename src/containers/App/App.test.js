@@ -25,10 +25,11 @@ global.fetch = jest.fn(() => Promise.resolve({
 describe('App', () => {
   it('should render', async() => {
     await act(async() => render(<App />))
-
     expect(screen.getByTestId('app')).toBeTruthy()
   })
+})
   
+describe('API call', () => {
   it('fetches data from server when server returns a successful response', done => {
     const url = process.env.REACT_APP_NEWS_API
     const mockSuccessResponse = {}
@@ -38,7 +39,7 @@ describe('App', () => {
       json: () => mockJsonPromise, 
     })
     jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise)
-                    
+    
     expect(global.fetch).toHaveBeenCalledTimes(1)
     expect(global.fetch).toHaveBeenCalledWith(url)
 

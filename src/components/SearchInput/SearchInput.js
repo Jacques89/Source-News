@@ -22,10 +22,12 @@ const SearchInput = ({ handleSubmit }) => {
       onSubmit={(e) => { 
         e.preventDefault(); 
         handleSubmit(input); 
-        setInput('') 
-      }}>
+        setInput('')
+      }}
+      data-testid='SearchBar'
+    >
       <FaSearch className="search-icon" />
-        <input type="text" onChange={getInput} value={input} />
+        <input type="text" placeholder='Search' onChange={getInput} value={input} />
         <button className="search-btn"></button>
     </animated.form>
 )
