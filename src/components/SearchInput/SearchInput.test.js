@@ -3,18 +3,18 @@ import SearchInput from './SearchInput'
 
 import { render, fireEvent, cleanup } from '@testing-library/react'
 
-afterEach(cleanup)
-
-const setup = () => {
-  const utils = render(<SearchInput />)
-  const input = utils.getByPlaceholderText('Search')
-  return {
-    input,
-    ...utils
-  }
-}
-
 describe('SearchInput', () => {
+  afterEach(cleanup)
+  
+  const setup = () => {
+    const utils = render(<SearchInput />)
+    const input = utils.getByPlaceholderText('Search')
+    return {
+      input,
+      ...utils
+    }
+  }
+
   it('renders', () => {
     const { getByTestId } = render(<SearchInput />)
     expect(getByTestId('SearchBar')).toBeTruthy()
