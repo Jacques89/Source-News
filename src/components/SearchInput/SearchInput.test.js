@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchInput from './SearchInput'
 
-import { render, screen,  fireEvent, cleanup, } from '@testing-library/react'
+import { render, fireEvent, cleanup } from '@testing-library/react'
 
 afterEach(cleanup)
 
@@ -22,6 +22,7 @@ describe('SearchInput', () => {
 
   it('changes value on user input', () => {
     const { input } = setup()
+    expect(input.value).toBe('')
     fireEvent.change(input, { 
       target: { value: 'new value' } 
     })
