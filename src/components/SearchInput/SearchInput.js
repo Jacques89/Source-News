@@ -24,7 +24,6 @@ const SearchInput = ({ handleSubmit }) => {
         handleSubmit(input); 
         setInput('')
       }}
-      data-testid='SearchBar'
     >
       <FaSearch className="search-icon" />
         <input type="text" placeholder='Search' onChange={getInput} value={input} />

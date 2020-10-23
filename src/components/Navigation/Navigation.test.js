@@ -1,8 +1,8 @@
 import React from 'react'
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import Navigation from './Navigation'
 
-afterEach(cleanup)
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 describe('NavigationBar', () => {
   const changeCategory = jest.fn()
@@ -11,14 +11,14 @@ describe('NavigationBar', () => {
     render(<Navigation changeCategory={changeCategory} />)
   })
 
-  it('renders a World news option', () => {
-    expect(screen.getByTestId('world')).toBeTruthy()
+  it('renders news categories', () => {
+    expect(screen.getByTestId('news-categories')).toMatchSnapshot()
   })
 
   it('should change category when a category is clicked', () => {
     const handleClick = changeCategory
-    render(<li onClick={handleClick}>World</li>)
-    fireEvent.click(screen.getByTestId('world'))
+    render(<li onClick={handleClick}>Business</li>)
+    userEvent.click(screen.getByTestId('business'))
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
 })
