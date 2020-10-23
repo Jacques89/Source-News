@@ -25,7 +25,7 @@ global.fetch = jest.fn(() => Promise.resolve({
 describe('App', () => {
   it('should render', async() => {
     await act(async() => render(<App />))
-    expect(screen.getByTestId('app')).toBeTruthy()
+    expect(screen.getByTestId('app')).toMatchSnapshot()
   })
 })
   

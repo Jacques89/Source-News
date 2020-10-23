@@ -11,6 +11,11 @@ describe('NavigationBar', () => {
     render(<Navigation changeCategory={changeCategory} />)
   })
 
+  it('should render a title and sub-title', () => {
+    expect(screen.getByRole('heading', {name: /Source News/i }))
+    expect(screen.getByRole('heading', {name: /Straight from the sources mouth!/i }))
+  })
+
   it('renders news categories', () => {
     expect(screen.getByTestId('news-categories')).toMatchSnapshot()
   })
