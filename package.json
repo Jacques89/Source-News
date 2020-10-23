@@ -8,7 +8,6 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.1.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -41,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^10.4.9",
     "react-test-renderer": "^16.13.1"
   }

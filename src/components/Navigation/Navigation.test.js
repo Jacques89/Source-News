@@ -8,7 +8,7 @@ describe('NavigationBar', () => {
   const changeCategory = jest.fn()
 
   beforeEach(() => {
-    render(<Navigation changeCategory={changeCategory} /> )
+    render(<Navigation changeCategory={changeCategory} />)
   })
 
   it('renders a World news option', () => {
