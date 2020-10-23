@@ -12,7 +12,7 @@ describe('NavigationBar', () => {
   })
 
   it('renders a World news option', () => {
-    expect(screen.getByText(/World/)).toBeInTheDocument()
+    expect(screen.getByText(/World/i)).toBeInTheDocument()
   })
 
   it('should change category when a category is clicked', () => {

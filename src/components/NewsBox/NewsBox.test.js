@@ -20,11 +20,8 @@ describe('NewsBox', () => {
 
   it('should navigate to an external site when link is clicked', () => {
     const { getByText } = render(<a href="https://sourcetest.com/">Continue reading</a>)
-
     const link = getByText('Continue reading')
-
     fireEvent.click(link)
-
     expect(getByText('Continue reading').href).toBe('https://sourcetest.com/')
   })
 })
