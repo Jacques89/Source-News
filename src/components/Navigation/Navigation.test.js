@@ -4,14 +4,6 @@ import Navigation from './Navigation'
 
 afterEach(cleanup)
 
-// const links = [
-//   { text: 'World', location: '/World' },
-//   { text: 'Business', location: '/Business' },
-//   { text: 'Sports', location: '/Sports' },
-//   { text: 'Entertainment', location: '/Entertainment' },
-//   { text: 'Technology', location: '/Technology' }
-// ]
-
 describe('NavigationBar', () => {
   const changeCategory = jest.fn()
 
