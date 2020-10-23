@@ -31,7 +31,8 @@ const Navigation = ({ category, changeCategory }) => {
       </header>
       <animated.nav style={menuAnimation} >
         <ul>
-          <li 
+          <li
+            data-testid='world'
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('World') }} 
             style={{ 
               backgroundColor: category === 'World' ? '#fff' : '#000', 

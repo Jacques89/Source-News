@@ -1,7 +1,9 @@
 import React from 'react'
 import App from './App'
 
-import { render, screen, act } from '@testing-library/react'
+import { render, screen, act, cleanup } from '@testing-library/react'
+
+afterEach(cleanup)
 
 global.fetch = jest.fn(() => Promise.resolve({
   json: () => Promise.resolve({
