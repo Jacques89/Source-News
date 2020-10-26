@@ -15,7 +15,7 @@ const Navigation = ({ category, changeCategory }) => {
   return (
     <animated.div style={topAnimation}>
       <header>
-        <h1 onClick={() => changeCategory('')}>Source News</h1>
+        <h1 onClick={() => changeCategory('World')}>Source News</h1>
         <h3>Straight from the sources mouth!</h3>
           {
             menuOpen ? 
