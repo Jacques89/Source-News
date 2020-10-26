@@ -6,13 +6,16 @@ import userEvent from '@testing-library/user-event'
 
 describe('NavigationBar', () => {
   const changeCategory = jest.fn()
-  const menuOpen = jest.fn()
+  const menuProps = {
+    menu: false,
+    setMenu: jest.fn()
+  }
 
   it('renders a title and sub-title', () => {
     render(
       <Navigation 
-        menuOpen={false} 
-        changeCategory={changeCategory} 
+        changeCategory={changeCategory}
+        {...menuProps} 
       />
     )
     expect(screen.getByRole('heading', {name: /Source News/i }))
@@ -22,8 +25,8 @@ describe('NavigationBar', () => {
   it('renders news categories', () => {
     render(
       <Navigation 
-        menuOpen={false} 
-        changeCategory={changeCategory} 
+        changeCategory={changeCategory}
+        {...menuProps}
       />
     )
     expect(screen.getByTestId('news-categories')).toMatchSnapshot()
@@ -32,12 +35,12 @@ describe('NavigationBar', () => {
   it('changes category when a category is clicked', () => {
     render(
       <Navigation 
-        menuOpen={true} 
-        changeCategory={changeCategory} 
+        menuOpen={!menuProps.menu} 
+        changeCategory={changeCategory}
       />
     )
     userEvent.click(screen.getByTestId('business'))
     expect(changeCategory).toHaveBeenCalledTimes(1)
-    expect(menuOpen).toBeTruthy()
+    expect(menuProps).toBeTruthy()
   })
 })
