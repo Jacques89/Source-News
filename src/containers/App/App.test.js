@@ -1,26 +1,8 @@
 import React from 'react'
 import App from './App'
+import '../../../__mocks__/Fetch'
 
 import { render, screen, act } from '@testing-library/react'
-
-global.fetch = jest.fn(() => Promise.resolve({
-  json: () => Promise.resolve({
-    news: [
-      {
-        category: 'World', 
-        content: 'Squirrel becomes President',
-        img: 'some Image URL',
-        title: 'Squirrel has now become President of the World'
-      },
-      {
-        category: 'Sports',
-        content: 'Messi wins World Cup with Argentina',
-        img: 'some url image',
-        title: 'Messi finally wins a World Cup'
-      }
-    ]
-  })
-}))
 
 describe('App', () => {
   it('should render', async() => {
@@ -30,7 +12,7 @@ describe('App', () => {
 })
   
 describe('API call', () => {
-  it('fetches data from server when server returns a successful response', done => {
+  it('fetches data from server when server returns a successful response', () => {
     const url = process.env.REACT_APP_NEWS_API
     const mockSuccessResponse = {}
     const mockJsonPromise = Promise.resolve(mockSuccessResponse)
@@ -44,6 +26,5 @@ describe('API call', () => {
     expect(global.fetch).toHaveBeenCalledWith(url)
 
     global.fetch.mockClear()
-    done()
   })
 })
