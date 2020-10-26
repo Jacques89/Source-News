@@ -21,9 +21,7 @@ describe('NavigationBar', () => {
   })
 
   it('changes category when a category is clicked', () => {
-    const handleClick = changeCategory
-    render(<li onClick={handleClick}>Business</li>)
     userEvent.click(screen.getByTestId('business'))
-    expect(handleClick).toHaveBeenCalledTimes(1)
+    expect(changeCategory).toHaveBeenCalledTimes(1)
   })
 })
