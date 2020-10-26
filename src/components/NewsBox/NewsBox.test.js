@@ -13,8 +13,8 @@ describe('NewsBox', () => {
   }
 
   it('renders the NewsBox component', () => {
-    const { getByTestId } = render(<NewsBox {...props} />)
-    expect(screen.getByTestId('article')).toMatchSnapshot()
+    const { getByRole } = render(<NewsBox {...props} />)
+    expect(screen.getByRole('article')).toMatchSnapshot()
   })
 
   it('should navigate to an external site when link is clicked', () => {

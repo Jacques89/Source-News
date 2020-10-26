@@ -1,28 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewsBox renders the NewsBox component 1`] = `
-<article
-  data-testid="article"
->
+<article>
   <h3
     class="title"
-    data-testid="article-title"
   />
   <div
     class="image"
-    data-testid="article-image"
     style="background-image: url(undefined);"
   />
   <p
     class="description"
-    data-testid="article-content"
   />
   <p
     class="link"
   >
-    <a
-      data-testid="external-link"
-    >
+    <a>
       Continue reading
     </a>
   </p>

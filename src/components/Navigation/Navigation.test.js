@@ -11,7 +11,7 @@ describe('NavigationBar', () => {
     render(<Navigation changeCategory={changeCategory} />)
   })
 
-  it('should render a title and sub-title', () => {
+  it('renders a title and sub-title', () => {
     expect(screen.getByRole('heading', {name: /Source News/i }))
     expect(screen.getByRole('heading', {name: /Straight from the sources mouth!/i }))
   })
@@ -20,7 +20,7 @@ describe('NavigationBar', () => {
     expect(screen.getByTestId('news-categories')).toMatchSnapshot()
   })
 
-  it('should change category when a category is clicked', () => {
+  it('changes category when a category is clicked', () => {
     const handleClick = changeCategory
     render(<li onClick={handleClick}>Business</li>)
     userEvent.click(screen.getByTestId('business'))
