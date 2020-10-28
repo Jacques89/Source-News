@@ -30,7 +30,7 @@ const Navigation = ({ category, changeCategory }) => {
           }
       </header>
       <animated.nav style={menuAnimation} >
-        <ul data-testid='news-categories'>
+        <ul aria-label='news-categories'>
           <li
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('World') }} 
             style={{ 
@@ -39,8 +39,7 @@ const Navigation = ({ category, changeCategory }) => {
             }}>
               World
           </li>
-          <li 
-            data-testid='business'
+          <li
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('Business') }} 
             style={{ 
               backgroundColor: category === 'Business' ? '#fff' : '#000', 

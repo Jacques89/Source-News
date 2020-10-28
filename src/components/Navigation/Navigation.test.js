@@ -7,9 +7,18 @@ import userEvent from '@testing-library/user-event'
 describe('NavigationBar', () => {
   const changeCategory = jest.fn()
   const menuProps = {
-    menu: false,
-    setMenu: jest.fn()
+    menu: false
   }
+
+  it('renders correctly', () => {
+    const component = render(
+      <Navigation 
+        changeCategory={changeCategory}
+        {...menuProps} 
+      />
+    ) 
+    expect(component).toMatchSnapshot()
+  })
 
   it('renders a title and sub-title', () => {
     render(
@@ -29,7 +38,7 @@ describe('NavigationBar', () => {
         {...menuProps}
       />
     )
-    expect(screen.getByTestId('news-categories')).toMatchSnapshot()
+    expect(screen.getByLabelText('news-categories'))
   })
 
   it('changes category when a category is clicked', () => {
@@ -39,8 +48,7 @@ describe('NavigationBar', () => {
         changeCategory={changeCategory}
       />
     )
-    userEvent.click(screen.getByTestId('business'))
+    userEvent.click(screen.getByText('Business'))
     expect(changeCategory).toHaveBeenCalledTimes(1)
-    expect(menuProps).toBeTruthy()
   })
 })

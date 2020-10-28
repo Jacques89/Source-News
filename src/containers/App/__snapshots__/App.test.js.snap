@@ -33,7 +33,7 @@ exports[`App should render 1`] = `
       style="opacity: 0; display: none; z-index: 1;"
     >
       <ul
-        data-testid="news-categories"
+        aria-label="news-categories"
       >
         <li
           style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"
@@ -41,7 +41,6 @@ exports[`App should render 1`] = `
           World
         </li>
         <li
-          data-testid="business"
           style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
         >
           Business
