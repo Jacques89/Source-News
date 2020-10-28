@@ -13,6 +13,7 @@ const NewsContainer = ({ news, category, userInput }) => {
   useEffect(() => {
     setArticles(
       news
+      .filter(article => article.title.toLocaleLowerCase().indexOf(userInput.toLocaleLowerCase()) !== -1)
       .filter(article => article.category === category)
       .map((article, i) => 
         <animated.div style={articleAnimation} className="box" key={i}>
@@ -24,7 +25,7 @@ const NewsContainer = ({ news, category, userInput }) => {
   }, [userInput, category])
  
   const noNewsCategory = `Sorry, there is no news in ${category} currently available`
-  const noNewsUserInput = `Sorry, there is no news currently available to ${userInput} in ${category}`
+  const noNewsUserInput = `Sorry, there is no news currently available for ${userInput} in ${category}`
 
   return (
     <div className="container" data-testid='NewsContainer'>

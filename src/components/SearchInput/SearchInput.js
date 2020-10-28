@@ -24,8 +24,10 @@ const SearchInput = ({ handleSubmit }) => {
         handleSubmit(input); 
         setInput('')
       }}
-    >
-      <FaSearch className="search-icon" />
+    > 
+      <button className="search-btn">
+        <FaSearch className="search-icon" />
+      </button>
         <input type="text" placeholder='Search' onChange={getInput} value={input} />
     </animated.form>
   )
