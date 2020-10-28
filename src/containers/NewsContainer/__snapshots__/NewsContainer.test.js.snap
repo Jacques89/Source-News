@@ -12,7 +12,7 @@ Object {
         <div
           class="no-news"
         >
-          Sorry, there is no news currently available to User-Input in News Categpry
+          Sorry, there is no news currently available for User-Input in News Categpry
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@ Object {
       <div
         class="no-news"
       >
-        Sorry, there is no news currently available to User-Input in News Categpry
+        Sorry, there is no news currently available for User-Input in News Categpry
       </div>
     </div>
   </div>,
