@@ -6,15 +6,36 @@ import userEvent from '@testing-library/user-event'
 
 describe('NavigationBar', () => {
   const changeCategory = jest.fn()
-  const menuProps = {
-    menu: false
+  const menuOpen = false
+  const mockCategory = {
+    world: {
+      name: 'World',
+      isSelected: true
+    },
+    business: {
+      name: 'Business',
+      isSelected: false
+    },
+    sports: {
+      name: 'Sports',
+      isSelected: false
+    },
+    entertainment: {
+      name: 'Entertainment',
+      isSelected: false
+    },
+    technology: {
+      name: 'Technology',
+      isSelected: false
+    }
   }
 
   it('renders correctly', () => {
     const component = render(
       <Navigation 
+        category={mockCategory}
         changeCategory={changeCategory}
-        {...menuProps} 
+        menuOpen={menuOpen}
       />
     ) 
     expect(component).toMatchSnapshot()
@@ -23,8 +44,9 @@ describe('NavigationBar', () => {
   it('renders a title and sub-title', () => {
     render(
       <Navigation 
+        category={mockCategory}
         changeCategory={changeCategory}
-        {...menuProps} 
+        menuOpen={menuOpen}
       />
     )
     expect(screen.getByRole('heading', {name: /Source News/i }))
@@ -34,8 +56,9 @@ describe('NavigationBar', () => {
   it('renders news categories', () => {
     render(
       <Navigation 
+        category={mockCategory}
         changeCategory={changeCategory}
-        {...menuProps}
+        menuOpen={menuOpen}
       />
     )
     expect(screen.getByLabelText('news-categories'))
@@ -44,7 +67,8 @@ describe('NavigationBar', () => {
   it('changes category when a category is clicked', () => {
     render(
       <Navigation 
-        menuOpen={!menuProps.menu} 
+        category={mockCategory}
+        menuOpen={!menuOpen}
         changeCategory={changeCategory}
       />
     )

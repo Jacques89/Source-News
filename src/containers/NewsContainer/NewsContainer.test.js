@@ -6,7 +6,7 @@ import { render, screen, act } from '@testing-library/react'
 describe('NewsContainer', () => {
   const props = {
     news: [],
-    category: 'News Categpry',
+    category: 'News Category',
     userInput: 'User-Input'
   }
   it('renders the NewsContainer correctly', () => {
