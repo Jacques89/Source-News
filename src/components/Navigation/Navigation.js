@@ -32,6 +32,7 @@ const Navigation = ({ category, changeCategory }) => {
       <animated.nav style={menuAnimation} >
         <ul aria-label='news-categories'>
           <li
+            aria-label='category'
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('World') }} 
             style={{ 
               backgroundColor: category === 'World' ? '#fff' : '#000', 
@@ -40,6 +41,7 @@ const Navigation = ({ category, changeCategory }) => {
               World
           </li>
           <li
+            aria-label='category'
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('Business') }} 
             style={{ 
               backgroundColor: category === 'Business' ? '#fff' : '#000', 
@@ -47,7 +49,8 @@ const Navigation = ({ category, changeCategory }) => {
             }}>
               Business
           </li>
-          <li 
+          <li
+            aria-label='category'
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('Sports') }} 
             style={{ 
               backgroundColor: category === 'Sports' ? '#fff' : '#000', 
@@ -56,6 +59,7 @@ const Navigation = ({ category, changeCategory }) => {
               Sports
           </li>
           <li 
+            aria-label='category'
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('Entertainment') }} 
             style={{ 
               backgroundColor: category === 'Entertainment' ? '#fff' : '#000', 
@@ -64,6 +68,7 @@ const Navigation = ({ category, changeCategory }) => {
               Entertainment
           </li>
           <li 
+            aria-label='category'
             onClick={() => { setMenuOpen(!menuOpen); changeCategory('Technology') }} 
             style={{ 
               backgroundColor: category === 'Technology' ? '#fff' : '#000', 

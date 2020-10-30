@@ -37,26 +37,31 @@ Object {
             aria-label="news-categories"
           >
             <li
+              aria-label="category"
               style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
             >
               World
             </li>
             <li
+              aria-label="category"
               style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
             >
               Business
             </li>
             <li
+              aria-label="category"
               style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
             >
               Sports
             </li>
             <li
+              aria-label="category"
               style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
             >
               Entertainment
             </li>
             <li
+              aria-label="category"
               style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
             >
               Technology
@@ -99,26 +104,31 @@ Object {
           aria-label="news-categories"
         >
           <li
+            aria-label="category"
             style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
           >
             World
           </li>
           <li
+            aria-label="category"
             style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
           >
             Business
           </li>
           <li
+            aria-label="category"
             style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
           >
             Sports
           </li>
           <li
+            aria-label="category"
             style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
           >
             Entertainment
           </li>
           <li
+            aria-label="category"
             style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
           >
             Technology

@@ -10,10 +10,7 @@ describe('NavigationBar', () => {
 
   it('renders correctly', () => {
     const component = render(
-      <Navigation 
-        changeCategory={changeCategory}
-        menuOpen={menuOpen}
-      />
+      <Navigation />
     ) 
     expect(component).toMatchSnapshot()
   })
@@ -37,6 +34,7 @@ describe('NavigationBar', () => {
       />
     )
     expect(screen.getByLabelText('news-categories'))
+    expect(screen.getAllByLabelText('category')).toHaveLength(5)
   })
 
   it('changes category when a category is clicked', () => {
