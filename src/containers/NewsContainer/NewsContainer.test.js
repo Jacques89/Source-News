@@ -1,5 +1,6 @@
 import React from 'react'
 import NewsContainer from './NewsContainer'
+import { toBeInTheDocument } from '@testing-library/jest-dom'
 
 import { render, screen } from '@testing-library/react'
 
@@ -42,12 +43,12 @@ describe('NewsContainer', () => {
   it('should render an error message when no news is available from user input', () => {
     const noNewsUserInputMock = `Sorry, there is no news currently available for ${noNewsUserInputProps.userInput} in ${noNewsUserInputProps.category}`
     render(<NewsContainer {...noNewsUserInputProps} />)
-    expect(screen.getByText(noNewsUserInputMock)).toBeTruthy()
+    expect(screen.getByText(noNewsUserInputMock)).toBeInTheDocument()
   })
 
   it('should render an error message when no news is available in category selection', () => {
     const noNewsCategoryMock = `Sorry, there is no news in ${noNewsCategoryProps.category} currently available`
     render(<NewsContainer {...noNewsCategoryProps} />)
-    expect(screen.getByText(noNewsCategoryMock)).toBeTruthy()
+    expect(screen.getByText(noNewsCategoryMock)).toBeInTheDocument()
   })
 })
