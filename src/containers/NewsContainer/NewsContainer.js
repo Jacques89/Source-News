@@ -28,7 +28,7 @@ const NewsContainer = ({ news, category, userInput }) => {
   const noNewsUserInput = `Sorry, there is no news currently available for ${userInput} in ${category}`
 
   return (
-    <div className="container" data-testid='NewsContainer'>
+    <div className="container">
       {
         articles &&
         !userInput && articles.length === 0 ?

@@ -7,12 +7,11 @@ Object {
     <div>
       <div
         class="container"
-        data-testid="NewsContainer"
       >
         <div
           class="no-news"
         >
-          Sorry, there is no news currently available for User-Input in News Category
+          Sorry, there is no news in  currently available
         </div>
       </div>
     </div>
@@ -20,12 +19,11 @@ Object {
   "container": <div>
     <div
       class="container"
-      data-testid="NewsContainer"
     >
       <div
         class="no-news"
       >
-        Sorry, there is no news currently available for User-Input in News Category
+        Sorry, there is no news in  currently available
       </div>
     </div>
   </div>,
