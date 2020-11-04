@@ -8,6 +8,8 @@ describe('NavigationBar', () => {
   const changeCategory = jest.fn()
   const menuOpen = false
 
+  const categories = ['World, Business, Sports, Entertainment, Technology']
+
   it('renders correctly', () => {
     const component = render(
       <Navigation />
