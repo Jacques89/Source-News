@@ -37,7 +37,6 @@ describe('NewsContainer', () => {
   it('renders the NewsContainer correctly', () => {
     const NewsContainerRerender = render(<NewsContainer {...props} />)
     expect(NewsContainerRerender).toMatchSnapshot()
-    console.log(<NewsContainer {...props} />)
   })
 
   it('should render an error message when no news is available from user input', () => {

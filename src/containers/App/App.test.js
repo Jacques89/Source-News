@@ -21,7 +21,7 @@ describe('API call', () => {
       json: () => mockJsonPromise, 
     })
     jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise)
-    
+
     expect(global.fetch).toHaveBeenCalledTimes(1)
     expect(global.fetch).toHaveBeenCalledWith(url)
 
