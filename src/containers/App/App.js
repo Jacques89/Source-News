@@ -24,7 +24,6 @@ const App = () => {
       )
       let response = await request.json()
       setNews(response)
-      console.log(request)
       setLoading(false)
       return response
     } catch (error) {
