@@ -1,5 +1,6 @@
 import React from 'react'
 import NewsContainer from './NewsContainer'
+import { toBeInTheDocument } from '@testing-library/jest-dom'
 
 
 import { render, screen } from '@testing-library/react'
