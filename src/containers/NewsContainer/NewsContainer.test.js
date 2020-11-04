@@ -1,10 +1,10 @@
 import React from 'react'
 import NewsContainer from './NewsContainer'
+import { toBeInTheDocument } from '@testing-library/jest-dom'
 
 import { render, screen } from '@testing-library/react'
 
 describe('NewsContainer', () => {
-  
   const news = [
     {
       title: 'test title 1',
@@ -37,6 +37,7 @@ describe('NewsContainer', () => {
   it('renders the NewsContainer correctly', () => {
     const NewsContainerRerender = render(<NewsContainer {...props} />)
     expect(NewsContainerRerender).toMatchSnapshot()
+    console.log(<NewsContainer {...props} />)
   })
 
   it('should render an error message when no news is available from user input', () => {
