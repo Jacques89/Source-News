@@ -19,22 +19,15 @@ describe('SearchInput', () => {
   })
 
   it('successfully changes back to the placeholder text onSubmit', () => {
-    const handleSubmit = jest.fn()
-    const { queryByPlaceholderText, getByRole } = render(<SearchInput handleSubmit={handleSubmit} />)
+    const getInput = jest.fn()
+    const { queryByPlaceholderText, getByRole } = render(<SearchInput handleSubmit={getInput} />)
     const searchInput = queryByPlaceholderText('Search')
     userEvent.click(searchInput, 'Search')
     expect(searchInput.value).toBe('')
     userEvent.type(searchInput, 'test')
     expect(searchInput.value).toBe('test')
     userEvent.click(getByRole('button'))
-    expect(handleSubmit).toHaveBeenCalledTimes(1)
+    expect(getInput).toHaveBeenCalledTimes(1)
     expect(searchInput.value).toBe('')
-  })
-
-  it('changes value on user input', () => {
-    const { input } = setup()
-    expect(input.value).toBe('')
-    userEvent.type(input, 'new value')
-    expect(input.value).toBe('new value')
   })
 })
