@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import '../../styles/App.scss'
+import './styles/App.scss'
 
 import Navigation from './components/Navigation/Navigation'
 import NewsContainer from './containers/NewsContainer/NewsContainer'
