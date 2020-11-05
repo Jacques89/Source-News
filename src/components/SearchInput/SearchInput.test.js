@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchInput from './SearchInput'
 
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 describe('SearchInput', () => {
@@ -10,9 +10,26 @@ describe('SearchInput', () => {
     const input = utils.getByPlaceholderText('Search')
     return {
       input,
-      ...utils
+      ...utils,
     }
   }
+  it('displays the correct placeholder text', () => {
+    setup()
+    expect(screen.getByPlaceholderText('Search')).toBeTruthy()
+  })
+
+  it('successfully changes back to the placeholder text onSubmit', () => {
+    const handleSubmit = jest.fn()
+    const { queryByPlaceholderText, getByRole } = render(<SearchInput handleSubmit={handleSubmit} />)
+    const searchInput = queryByPlaceholderText('Search')
+    userEvent.click(searchInput, 'Search')
+    expect(searchInput.value).toBe('')
+    userEvent.type(searchInput, 'test')
+    expect(searchInput.value).toBe('test')
+    userEvent.click(getByRole('button'))
+    expect(handleSubmit).toHaveBeenCalledTimes(1)
+    expect(searchInput.value).toBe('')
+  })
 
   it('changes value on user input', () => {
     const { input } = setup()

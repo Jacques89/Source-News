@@ -92,6 +92,7 @@ exports[`App should render 1`] = `
       </svg>
     </button>
     <input
+      aria-labelledby="searchBar"
       placeholder="Search"
       type="text"
       value=""

@@ -1,5 +1,5 @@
 import React from "react"
-import App from "./containers/App/App"
+import App from './App'
 import reactDOM from "react-dom"
 import './index.scss'
 

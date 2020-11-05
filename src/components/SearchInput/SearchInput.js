@@ -28,7 +28,13 @@ const SearchInput = ({ handleSubmit }) => {
       <button className="search-btn">
         <FaSearch className="search-icon" />
       </button>
-        <input type="text" placeholder='Search' onChange={getInput} value={input} />
+        <input 
+          type="text" 
+          aria-labelledby='searchBar'
+          placeholder='Search' 
+          onChange={getInput} 
+          value={input} 
+        />
     </animated.form>
   )
 }
