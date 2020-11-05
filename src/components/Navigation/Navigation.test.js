@@ -8,7 +8,7 @@ describe('NavigationBar', () => {
   const changeCategory = jest.fn()
   const menuOpen = false
 
-  const categories = ['World, Business, Sports, Entertainment, Technology']
+  const categories = ['World', 'Business', 'Sports', 'Entertainment', 'Technology']
 
   it('renders correctly', () => {
     const component = render(
@@ -37,6 +37,7 @@ describe('NavigationBar', () => {
     )
     expect(screen.getByLabelText('news-categories'))
     expect(screen.getAllByLabelText('category')).toHaveLength(5)
+    categories.map(category => expect(screen.getByText(category).textContent).toBe(category))
   })
 
   it('changes category when a category is clicked', () => {
