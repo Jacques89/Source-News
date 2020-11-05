@@ -1,6 +1,6 @@
 import React from 'react'
 import App from './App'
-import '../../../__mocks__/Fetch'
+import '../__mocks__/Fetch'
 
 import { render, screen, act } from '@testing-library/react'
 
