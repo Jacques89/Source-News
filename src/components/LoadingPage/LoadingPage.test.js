@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react'
 describe('LoadingPage', () => {
   it('renders a loading page', () => {
     render(<LoadingPage />)
-    expect(screen.getByText('loading')).toMatchSnapshot()
+    expect(screen.getByTestId('loading-page')).toMatchSnapshot()
   })
 
   describe('if loading is true', () => {
