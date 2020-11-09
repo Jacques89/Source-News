@@ -14,7 +14,7 @@ describe('LoadingPage', () => {
       render(
         <LoadingPage loading={true} />
       )
-      expect(screen.getByText(/loading/i)).toBeTruthy()
+      expect(screen.getByText('loading')).toBeTruthy()
       expect(screen.getByTitle('spinner')).toBeTruthy()
     })
   })
