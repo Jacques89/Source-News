@@ -7,7 +7,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 const LoadingPage = () => {
   return (
     <div className="loadingBackground">
-      <p className="loading-message">loading<FontAwesomeIcon icon={faSpinner} spin /></p>
+      <p className="loading-message">loading<FontAwesomeIcon title='spinner' icon={faSpinner} spin /></p>
     </div>
   )
 }
