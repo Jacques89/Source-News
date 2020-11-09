@@ -6,7 +6,7 @@ exports[`LoadingPage renders a loading page 1`] = `
 >
   loading
   <svg
-    aria-labelledby="svg-inline--fa-title-TXz8xZuj8Rxh"
+    aria-labelledby="svg-inline--fa-title-VXkNhFZfNpnI"
     class="svg-inline--fa fa-spinner fa-w-16 fa-spin "
     data-icon="spinner"
     data-prefix="fas"
@@ -15,7 +15,7 @@ exports[`LoadingPage renders a loading page 1`] = `
     xmlns="http://www.w3.org/2000/svg"
   >
     <title
-      id="svg-inline--fa-title-TXz8xZuj8Rxh"
+      id="svg-inline--fa-title-VXkNhFZfNpnI"
     >
       spinner
     </title>
