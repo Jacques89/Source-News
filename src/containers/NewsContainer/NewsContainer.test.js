@@ -1,7 +1,5 @@
 import React from 'react'
 import NewsContainer from './NewsContainer'
-//Ensure it passes via github actions
-// import '@testing-library/jest-dom/extend-expect'
 
 import { render, screen } from '@testing-library/react'
 
