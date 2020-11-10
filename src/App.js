@@ -30,7 +30,7 @@ const App = () => {
       console.log('ERROR:', error)
     }
   }
-
+  
   const changeCategory = category => {
     setCategory(category)
     setUserInput('')
@@ -42,6 +42,7 @@ const App = () => {
   useEffect(() => {
     dataFetch()
     setCategory('World')
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
  
   return (
