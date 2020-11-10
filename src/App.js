@@ -11,7 +11,6 @@ import Footer from './components/Footer/Footer'
 require('dotenv').config()
 
 const App = () => {
-
   const [news, setNews] = useState([])
   const [category, setCategory] = useState('')
   const [loading, setLoading] = useState(true)
