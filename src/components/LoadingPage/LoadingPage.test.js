@@ -11,9 +11,7 @@ describe('LoadingPage', () => {
 
   describe('if loading is true', () => {
     it('should render a loading message with a spinner', () => {
-      render(
-        <LoadingPage loading={true} />
-      )
+      render(<LoadingPage loading={true} />)
       expect(screen.getByText('loading')).toBeTruthy()
       expect(screen.getByTestId('spinner')).toBeTruthy()
     })
