@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import './styles/App.scss'
 
@@ -11,12 +11,12 @@ import Footer from './components/Footer/Footer'
 require('dotenv').config()
 
 const App = () => {
-  const [news, setNews] = useState([])
+  const [news, setNews] = useState<String[]>([])
   const [category, setCategory] = useState('')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
   const [userInput, setUserInput] = useState('')
 
-  const newsAPI = process.env.REACT_APP_NEWS_API
+  const newsAPI = `${process.env.REACT_APP_NEWS_API}`
 
   const dataFetch = async () => {
     try {
@@ -30,11 +30,11 @@ const App = () => {
     }
   }
 
-  const changeCategory = (category) => {
+  const changeCategory = (category: string) => {
     setCategory(category)
     setUserInput('')
   }
-  const handleSubmit = (input) => {
+  const handleSubmit = (input: string) => {
     setUserInput(input)
   }
 

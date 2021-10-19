@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { ReactElement, useState } from 'react'
 
 import { useSpring, animated } from 'react-spring'
 import { FaBars } from 'react-icons/fa'
@@ -6,8 +6,11 @@ import { FaTimes } from 'react-icons/fa'
 
 import '../../styles/Navigation.scss'
 
-const Navigation = ({ category, changeCategory }) => {
-  const [menuOpen, setMenuOpen] = useState(false)
+const Navigation = ({
+  category,
+  changeCategory
+}: NavigationProps): ReactElement => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false)
 
   const topAnimation = useSpring({
     marginTop: 0,

@@ -17,7 +17,9 @@ describe('NavigationBar', () => {
   ]
 
   it('renders correctly', () => {
-    const component = render(<Navigation />)
+    const component = render(
+      <Navigation changeCategory={changeCategory} />
+    )
     expect(component).toMatchSnapshot()
   })
 
