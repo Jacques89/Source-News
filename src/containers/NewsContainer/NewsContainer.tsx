@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 
 import { useSpring, animated } from 'react-spring'
 
 import NewsBox from '../../components/NewsBox/NewsBox'
 import '../../styles/NewsContainer.scss'
 
-const NewsContainer = ({ news, category, userInput }: NewsContainerProps) => {
+const NewsContainer = ({
+  news,
+  category,
+  userInput
+}: NewsContainerProps): ReactElement => {
   const [articles, setArticles] = useState('')
   const articleAnimation = useSpring({
     opacity: 1,

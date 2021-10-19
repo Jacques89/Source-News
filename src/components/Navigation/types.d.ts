@@ -1,5 +1,5 @@
 type NavigationProps = {
   category?: string
-  changeCategory: (a: string) => void
+  changeCategory: (category: string) => void
   menuOpen?: boolean
 }

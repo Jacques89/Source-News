@@ -1,4 +1,3 @@
-import React from 'react'
 import LoadingPage from './LoadingPage'
 
 import { render, screen } from '@testing-library/react'

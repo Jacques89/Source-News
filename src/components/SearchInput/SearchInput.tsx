@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactElement, useState } from 'react'
+import { ChangeEvent, ReactElement, useState } from 'react'
 
 import { FaSearch } from 'react-icons/fa'
 import { useSpring, animated } from 'react-spring'
