@@ -18,11 +18,9 @@ const App = () => {
 
   const newsAPI = process.env.REACT_APP_NEWS_API
 
-  const dataFetch = async() => {
+  const dataFetch = async () => {
     try {
-      const request = await fetch(
-        newsAPI
-      )
+      const request = await fetch(newsAPI)
       let response = await request.json()
       setNews(response)
       setLoading(false)
@@ -31,26 +29,28 @@ const App = () => {
       console.log('ERROR:', error)
     }
   }
-  
-  const changeCategory = category => {
+
+  const changeCategory = (category) => {
     setCategory(category)
     setUserInput('')
-  } 
-  const handleSubmit = input => {
+  }
+  const handleSubmit = (input) => {
     setUserInput(input)
-  } 
-  
+  }
+
   useEffect(() => {
     dataFetch()
     setCategory('World')
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
- 
+
   return (
     <div data-testid='app'>
       <Navigation changeCategory={changeCategory} category={category} />
       <SearchInput handleSubmit={handleSubmit} />
-      {news.length > 1 ? <NewsContainer news={news} category={category} userInput={userInput} /> : null}
+      {news.length > 1 ? (
+        <NewsContainer news={news} category={category} userInput={userInput} />
+      ) : null}
       {loading ? <LoadingPage /> : null}
       {news.length > 0 ? <Footer /> : null}
     </div>

@@ -4,8 +4,8 @@ export function setupFetchStub(news) {
       resolve({
         json: () =>
           Promise.resolve({
-            news,
-          }),
+            news
+          })
       })
     })
   }

@@ -8,45 +8,38 @@ describe('NavigationBar', () => {
   const changeCategory = jest.fn()
   const menuOpen = false
 
-  const categories = ['World', 'Business', 'Sports', 'Entertainment', 'Technology']
+  const categories = [
+    'World',
+    'Business',
+    'Sports',
+    'Entertainment',
+    'Technology'
+  ]
 
   it('renders correctly', () => {
-    const component = render(
-      <Navigation />
-    ) 
+    const component = render(<Navigation />)
     expect(component).toMatchSnapshot()
   })
 
   it('renders a title and sub-title', () => {
-    render(
-      <Navigation 
-        changeCategory={changeCategory}
-        menuOpen={menuOpen}
-      />
+    render(<Navigation changeCategory={changeCategory} menuOpen={menuOpen} />)
+    expect(screen.getByRole('heading', { name: /Source News/i }))
+    expect(
+      screen.getByRole('heading', { name: /Straight from the sources mouth!/i })
     )
-    expect(screen.getByRole('heading', {name: /Source News/i }))
-    expect(screen.getByRole('heading', {name: /Straight from the sources mouth!/i }))
   })
 
   it('renders news categories', () => {
-    render(
-      <Navigation 
-        changeCategory={changeCategory}
-        menuOpen={menuOpen}
-      />
-    )
+    render(<Navigation changeCategory={changeCategory} menuOpen={menuOpen} />)
     expect(screen.getByLabelText('news-categories'))
     expect(screen.getAllByLabelText('category')).toHaveLength(5)
-    categories.map(category => expect(screen.getByText(category).textContent).toBe(category))
+    categories.map((category) =>
+      expect(screen.getByText(category).textContent).toBe(category)
+    )
   })
 
   it('changes category when a category is clicked', () => {
-    render(
-      <Navigation 
-        menuOpen={!menuOpen}
-        changeCategory={changeCategory}
-      />
-    )
+    render(<Navigation menuOpen={!menuOpen} changeCategory={changeCategory} />)
     userEvent.click(screen.getByText('Business'))
     expect(changeCategory).toHaveBeenCalledTimes(1)
   })
