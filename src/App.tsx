@@ -11,10 +11,10 @@ import Footer from './components/Footer/Footer'
 require('dotenv').config()
 
 const App = () => {
-  const [news, setNews] = useState<String[]>([])
-  const [category, setCategory] = useState('')
+  const [news, setNews] = useState<Array<Object>>([])
+  const [category, setCategory] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(true)
-  const [userInput, setUserInput] = useState('')
+  const [userInput, setUserInput] = useState<string>('')
 
   const newsAPI = `${process.env.REACT_APP_NEWS_API}`
 

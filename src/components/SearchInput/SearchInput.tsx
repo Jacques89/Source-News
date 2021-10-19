@@ -6,7 +6,7 @@ import { useSpring, animated } from 'react-spring'
 import '../../styles/SearchForm.scss'
 
 const SearchInput = ({ handleSubmit }: SearchInputProps): ReactElement => {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState<string>('')
   const topAnimation = useSpring({
     marginTop: 0,
     from: { marginTop: -1000, transitionDuration: '.8s' }

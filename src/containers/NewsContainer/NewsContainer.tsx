@@ -10,7 +10,7 @@ const NewsContainer = ({
   category,
   userInput
 }: NewsContainerProps): ReactElement => {
-  const [articles, setArticles] = useState('')
+  const [articles, setArticles] = useState<string>('')
   const articleAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' }
