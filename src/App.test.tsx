@@ -11,7 +11,7 @@ describe('App', () => {
 })
 
 describe('API call', () => {
-  const data = [
+  const mockNewsResponse = [
     {
       category: 'World',
       content: 'Squirrel becomes President',
@@ -26,14 +26,15 @@ describe('API call', () => {
     }
   ]
 
-  it('fetches data from server when server returns a successful response', async () => {
+  it('fetches data from server successfully', async () => {
     const url: string = `${process.env.REACT_APP_NEWS_API}`
-    const fakeData: Object = { news: data }
+    const fakeData: Object[] = mockNewsResponse
     jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(fakeData))
 
     const res = await fetch(url)
     const json = await res.json()
     expect(json).toEqual({ news: fakeData })
+    console.log(json)
     //TODO fix this with typing
     // global.fetch.mockClear()
   })
