@@ -1,5 +1,5 @@
 import App from './App'
-import { setupFetchStub } from './__test__/functions/__mocks__/Fetch'
+import { setupFetchStub } from './test-utils/helpers/Fetch'
 
 import { render, screen } from '@testing-library/react'
 
