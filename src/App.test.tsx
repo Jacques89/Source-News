@@ -11,7 +11,7 @@ describe('App', () => {
 })
 
 describe('API call', () => {
-  const mockNewsResponse = [
+  const mockNewsResponse: Array<Object> = [
     {
       category: 'World',
       content: 'Squirrel becomes President',

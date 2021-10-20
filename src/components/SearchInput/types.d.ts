@@ -1,3 +1,3 @@
 type SearchInputProps = {
-  handleSubmit: (e: string | any) => void
+  handleSubmit: (e: string) => void
 }
