@@ -34,7 +34,6 @@ describe('API call', () => {
     const res = await fetch(url)
     const json = await res.json()
     expect(json).toEqual({ news: fakeData })
-    console.log(json)
     //TODO fix this with typing
     // global.fetch.mockClear()
   })
