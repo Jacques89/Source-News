@@ -31,12 +31,11 @@ describe('API call', () => {
     const fakeData: Object[] = mockNewsResponse
     const fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(fakeData))
     
-
     const res = await fetch(url)
     const json = await res.json()
     expect(json).toEqual({ news: fakeData })
     expect(fetchSpy).toHaveBeenCalledTimes(1)
-    //TODO fix this with typing
-    // global.fetch.mockClear()
+    // Clear 
+    fetchSpy.mockClear()
   })
 })
