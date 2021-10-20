@@ -1,4 +1,3 @@
-import React from 'react'
 import Navigation from './Navigation'
 
 import { render, screen } from '@testing-library/react'
@@ -17,7 +16,9 @@ describe('NavigationBar', () => {
   ]
 
   it('renders correctly', () => {
-    const component = render(<Navigation />)
+    const component = render(
+      <Navigation changeCategory={changeCategory} />
+    )
     expect(component).toMatchSnapshot()
   })
 

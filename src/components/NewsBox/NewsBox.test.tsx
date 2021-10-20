@@ -1,4 +1,3 @@
-import React from 'react'
 import NewsBox from './NewsBox'
 
 import { render, screen } from '@testing-library/react'
@@ -6,10 +5,12 @@ import userEvent from '@testing-library/user-event'
 
 describe('NewsBox', () => {
   const props = {
-    article: 'article-title',
-    image: 'news.png',
-    description: 'News description',
-    source: 'https://externalsource.com/'
+    article: {
+      title: 'article-title',
+      img: 'news.png',
+      content: 'News description',
+      source_url: 'https://externalsource.com/'
+    }
   }
 
   it('renders the NewsBox component', () => {
@@ -18,9 +19,13 @@ describe('NewsBox', () => {
   })
 
   it('should navigate to an external site when link is clicked', () => {
-    const { getByText } = render(<a href={props.source}>Continue reading</a>)
+    const { getByText } = render(
+      <a href={props.article.source_url}>Continue reading</a>
+    )
     const link = getByText('Continue reading')
     userEvent.click(link)
-    expect(getByText('Continue reading').href).toBe(props.source)
+    expect(getByText('Continue reading').getAttribute('href')).toBe(
+      props.article.source_url 
+    )
   })
 })

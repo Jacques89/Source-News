@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect, ReactElement } from 'react'
 
 import { useSpring, animated } from 'react-spring'
 
 import NewsBox from '../../components/NewsBox/NewsBox'
 import '../../styles/NewsContainer.scss'
 
-const NewsContainer = ({ news, category, userInput }) => {
-  const [articles, setArticles] = useState('')
+const NewsContainer = ({
+  news,
+  category,
+  userInput
+}: NewsContainerProps): ReactElement => {
+  const [articles, setArticles] = useState<string>('')
   const articleAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0, transitionDelay: '.5s', transitionDuration: '.5s' }
@@ -16,17 +20,30 @@ const NewsContainer = ({ news, category, userInput }) => {
     setArticles(
       news
         .filter(
-          (article) =>
+          (article: { title: string }) =>
             article.title
               .toLocaleLowerCase()
               .indexOf(userInput.toLocaleLowerCase()) !== -1
         )
-        .filter((article) => article.category === category)
-        .map((article, i) => (
-          <animated.div style={articleAnimation} className='box' key={i}>
-            <NewsBox key={i} article={article} />
-          </animated.div>
-        ))
+        .filter(
+          (article: { category: string | undefined }) =>
+            article.category === category
+        )
+        .map(
+          (
+            article: {
+              title: string
+              img: string
+              content: string
+              source_url: string
+            },
+            i: React.Key | null | undefined
+          ) => (
+            <animated.div style={articleAnimation} className='box' key={i}>
+              <NewsBox key={i} article={article} />
+            </animated.div>
+          )
+        )
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInput, category])

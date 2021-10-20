@@ -1,4 +1,3 @@
-import React from 'react'
 import NewsContainer from './NewsContainer'
 
 import { render, screen } from '@testing-library/react'

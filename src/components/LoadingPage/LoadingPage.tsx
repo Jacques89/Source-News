@@ -1,10 +1,10 @@
-import React from 'react'
+import { ReactElement } from 'react'
 
 import '../../styles/LoadingPage.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
-const LoadingPage = () => {
+const LoadingPage = ({ loading }: LoadingPageProps): ReactElement => {
   return (
     <div data-testid='loading-page' className='loadingBackground'>
       <p className='loading-message'>
