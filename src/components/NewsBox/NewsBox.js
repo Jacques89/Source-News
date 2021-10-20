@@ -1,6 +1,7 @@
+import React from 'react'
 import '../../styles/NewsBox.scss'
 
-const NewsBox = ({ article }: NewsBoxProps) => {
+const NewsBox = ({ article }) => {
   return (
     <article>
       <h3 className='title'>{article.title}</h3>

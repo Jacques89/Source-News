@@ -1,10 +1,11 @@
+import React from 'react'
 import LoadingPage from './LoadingPage'
 
 import { render, screen } from '@testing-library/react'
 
 describe('LoadingPage', () => {
   it('renders a loading page', () => {
-    render(<LoadingPage loading={true} />)
+    render(<LoadingPage />)
     expect(screen.getByTestId('loading-page')).toMatchSnapshot()
   })
 

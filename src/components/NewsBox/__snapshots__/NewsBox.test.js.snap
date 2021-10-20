@@ -4,24 +4,18 @@ exports[`NewsBox renders the NewsBox component 1`] = `
 <article>
   <h3
     class="title"
-  >
-    article-title
-  </h3>
+  />
   <div
     class="image"
-    style="background-image: url(news.png);"
+    style="background-image: url(undefined);"
   />
   <p
     class="description"
-  >
-    News description
-  </p>
+  />
   <p
     class="link"
   >
-    <a
-      href="https://externalsource.com/"
-    >
+    <a>
       Continue reading
     </a>
   </p>

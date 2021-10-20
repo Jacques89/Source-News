@@ -1,3 +1,0 @@
-type LoadingPageProps = {
-  loading?: boolean
-}

@@ -1,18 +1,18 @@
-import { ChangeEvent, ReactElement, useState } from 'react'
+import React, { useState } from 'react'
 
 import { FaSearch } from 'react-icons/fa'
 import { useSpring, animated } from 'react-spring'
 
 import '../../styles/SearchForm.scss'
 
-const SearchInput = ({ handleSubmit }: SearchInputProps): ReactElement => {
-  const [input, setInput] = useState<string>('')
+const SearchInput = ({ handleSubmit }) => {
+  const [input, setInput] = useState('')
   const topAnimation = useSpring({
     marginTop: 0,
     from: { marginTop: -1000, transitionDuration: '.8s' }
   })
 
-  const getInput = (e: ChangeEvent<HTMLInputElement>) => {
+  const getInput = (e) => {
     setInput(e.target.value)
   }
 
@@ -21,8 +21,8 @@ const SearchInput = ({ handleSubmit }: SearchInputProps): ReactElement => {
       className='search-bar'
       style={topAnimation}
       action='#'
-      onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
-        e?.preventDefault()
+      onSubmit={(e) => {
+        e.preventDefault()
         handleSubmit(input)
         setInput('')
       }}

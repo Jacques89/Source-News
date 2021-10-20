@@ -1,13 +1,13 @@
-import { ReactElement } from 'react'
+import React from 'react'
 
 import { FaGithubSquare } from 'react-icons/fa'
 import { FaLinkedin } from 'react-icons/fa'
 import '../../styles/Footer.scss'
 
-const Footer = (): ReactElement => {
+const Footer = () => {
   return (
     <footer>
-      <p className='copyright'>Jacques Nalletamby, 2021</p>
+      <p className='copyright'>Jacques Nalletamby, 2020</p>
       <div className='icons'>
         <a href='https://github.com/jacques89' className='icon'>
           <FaGithubSquare />
