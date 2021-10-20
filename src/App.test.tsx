@@ -29,11 +29,13 @@ describe('API call', () => {
   it('fetches data from server successfully', async () => {
     const url: string = `${process.env.REACT_APP_NEWS_API}`
     const fakeData: Object[] = mockNewsResponse
-    jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(fakeData))
+    const fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(fakeData))
+    
 
     const res = await fetch(url)
     const json = await res.json()
     expect(json).toEqual({ news: fakeData })
+    expect(fetchSpy).toHaveBeenCalledTimes(1)
     //TODO fix this with typing
     // global.fetch.mockClear()
   })
