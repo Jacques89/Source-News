@@ -6,17 +6,22 @@ import '../../styles/Footer.scss'
 
 const Footer = (): ReactElement => {
   return (
-    <footer>
+    <footer data-testid='footer'>
       <p className='copyright'>Jacques Nalletamby, 2021</p>
       <div className='icons'>
-        <a href='https://github.com/jacques89' className='icon'>
-          <FaGithubSquare />
+        <a
+          data-testid='githubLink'
+          href='https://github.com/jacques89'
+          className='icon'
+        >
+          <FaGithubSquare data-testid='githubIcon' />
         </a>{' '}
         <a
+          data-testid='linkedinLink'
           href='https://www.linkedin.com/in/jacquesnalletamby/'
           className='icon'
         >
-          <FaLinkedin />
+          <FaLinkedin data-testid='linkedinIcon' />
         </a>
       </div>
     </footer>

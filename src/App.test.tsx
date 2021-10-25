@@ -10,8 +10,14 @@ describe('App', () => {
   })
 })
 
-describe('API call', () => {
-  const mockNewsResponse: Array<Object> = [
+describe('API', () => {
+  beforeEach(() => {
+    // Clear 
+    const fetchSpy = jest.spyOn(global, 'fetch')
+    fetchSpy.mockClear()
+  })
+
+  const mockNewsResponse: Array<NewsProps> = [
     {
       category: 'World',
       content: 'Squirrel becomes President',
@@ -26,16 +32,24 @@ describe('API call', () => {
     }
   ]
 
-  it('fetches data from server successfully', async () => {
-    const url: string = `${process.env.REACT_APP_NEWS_API}`
+  const url: string = `${process.env.REACT_APP_NEWS_API}`
+
+  it('fetches data from API successfully', async () => {
     const fakeData: Object[] = mockNewsResponse
     const fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(fakeData))
     
-    const res = await fetch(url)
+    const res: Response = await fetch(url)
     const json = await res.json()
     expect(json).toEqual({ news: fakeData })
     expect(fetchSpy).toHaveBeenCalledTimes(1)
-    // Clear 
-    fetchSpy.mockClear()
+  })
+  it('returns an empty array if no data is available from API', async () => {
+    const emptyData: Object[] = []
+    const fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(emptyData))
+
+    const res: Response = await fetch(url)
+    const json = await res.json()
+    expect(json).toEqual({ news: emptyData })
+    expect(fetchSpy).toHaveBeenCalledTimes(1)
   })
 })

@@ -16,16 +16,16 @@ const App = () => {
   const [loading, setLoading] = useState<boolean>(true)
   const [userInput, setUserInput] = useState<string>('')
 
-  const newsAPI = `${process.env.REACT_APP_NEWS_API}`
+  const newsAPI: string = `${process.env.REACT_APP_NEWS_API}`
 
   const dataFetch = async () => {
     try {
-      const request = await fetch(newsAPI)
+      const request: Response = await fetch(newsAPI)
       let response = await request.json()
       setNews(response)
       setLoading(false)
       return response
-    } catch (error) {
+    } catch (error: unknown) {
       console.log('ERROR:', error)
     }
   }
