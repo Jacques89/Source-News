@@ -6,7 +6,7 @@ describe('Footer', () => {
   beforeEach(() => {
     render(<Footer />)
   })
-  it('should render', () => {
+  it('renders correctly', () => {
     expect(screen.getByTestId('footer')).toMatchSnapshot()
   })
   describe('Github Link and Icon', () => {

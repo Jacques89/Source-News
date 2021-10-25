@@ -1,11 +1,8 @@
 import { ReactElement } from 'react'
+import { CategoryProps } from '../types'
 
-const Business = (): ReactElement => {
-  return (
-    <div>
-
-    </div>
-  )
+const Business = ({ children }: CategoryProps): ReactElement => {
+  return <div>{children}</div>
 }
 
 export default Business

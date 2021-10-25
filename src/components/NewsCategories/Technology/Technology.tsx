@@ -1,11 +1,8 @@
 import { ReactElement } from 'react'
+import { CategoryProps } from '../types'
 
-const Technology = (): ReactElement => {
-  return (
-    <div>
-
-    </div>
-  )
+const Technology = ({ children }: CategoryProps): ReactElement => {
+  return <div>{children}</div>
 }
 
 export default Technology

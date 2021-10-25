@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoadingPage renders a loading page 1`] = `
+exports[`LoadingPage renders correctly 1`] = `
 <div
   class="loadingBackground"
   data-testid="loading-page"

@@ -18,6 +18,7 @@ const SearchInput = ({ handleSubmit }: SearchInputProps): ReactElement => {
 
   return (
     <animated.form
+      data-testid='searchInput'
       className='search-bar'
       style={topAnimation}
       action='#'

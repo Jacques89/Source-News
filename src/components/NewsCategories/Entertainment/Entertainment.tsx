@@ -1,11 +1,8 @@
 import { ReactElement } from 'react'
+import { CategoryProps } from '../types'
 
-const Entertainment = (): ReactElement => {
-  return (
-    <div>
-
-    </div>
-  )
+const Entertainment = ({ children }: CategoryProps): ReactElement => {
+  return <div>{children}</div>
 }
 
 export default Entertainment

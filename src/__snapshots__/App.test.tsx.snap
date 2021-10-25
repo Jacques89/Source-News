@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render 1`] = `
+exports[`App renders correctly 1`] = `
 <div
   data-testid="app"
 >
   <div
+    data-testid="navigation"
     style="margin-top: -1000px; transition-duration: .8s;"
   >
     <header>
@@ -71,6 +72,7 @@ exports[`App should render 1`] = `
   <form
     action="#"
     class="search-bar"
+    data-testid="searchInput"
     style="margin-top: -1000px; transition-duration: .8s;"
   >
     <button

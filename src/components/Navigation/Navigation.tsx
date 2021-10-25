@@ -23,7 +23,7 @@ const Navigation = ({
   })
 
   return (
-    <animated.div style={topAnimation}>
+    <animated.div style={topAnimation} data-testid='navigation'>
       <header>
         <h1 onClick={() => changeCategory('World')}>Source News</h1>
         <h3>Straight from the sources mouth!</h3>

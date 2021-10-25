@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NewsBox renders the NewsBox component 1`] = `
+exports[`NewsBox renders correctly 1`] = `
 <article>
   <h3
     class="title"
