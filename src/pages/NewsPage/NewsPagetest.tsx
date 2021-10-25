@@ -1,4 +1,4 @@
-import NewsContainer from './NewsPage'
+import NewsPage from './NewsPage'
 
 import { render, screen } from '@testing-library/react'
 
@@ -33,19 +33,19 @@ describe('NewsPage', () => {
   }
 
   it('renders the NewsContainer correctly', () => {
-    const NewsContainerRerender = render(<NewsContainer {...props} />)
-    expect(NewsContainerRerender).toMatchSnapshot()
+    const NewsPageRerender = render(<NewsPage {...props} />)
+    expect(NewsPageRerender).toMatchSnapshot()
   })
 
   it('should render an error message when no news is available from user input', () => {
     const noNewsUserInputMock = `Sorry, there is no news currently available for ${noNewsUserInputProps.userInput} in ${noNewsUserInputProps.category}`
-    render(<NewsContainer {...noNewsUserInputProps} />)
-    expect(screen.getByText(noNewsUserInputMock)).toBeTruthy()
+    render(<NewsPage {...noNewsUserInputProps} />)
+    expect(screen.getByText(noNewsUserInputMock)).toBeInTheDocument()
   })
 
   it('should render an error message when no news is available in category selection', () => {
     const noNewsCategoryMock = `Sorry, there is no news in ${noNewsCategoryProps.category} currently available`
-    render(<NewsContainer {...noNewsCategoryProps} />)
-    expect(screen.getByText(noNewsCategoryMock)).toBeTruthy()
+    render(<NewsPage {...noNewsCategoryProps} />)
+    expect(screen.getByText(noNewsCategoryMock)).toBeInTheDocument()
   })
 })

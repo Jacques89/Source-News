@@ -5,7 +5,7 @@ import { useSpring, animated } from 'react-spring'
 import NewsBox from '../../features/NewsBox/NewsBox'
 import '../../styles/NewsContainer.scss'
 
-const NewsContainer = ({
+const NewsPage = ({
   news,
   category,
   userInput
@@ -64,4 +64,4 @@ const NewsContainer = ({
   )
 }
 
-export default NewsContainer
+export default NewsPage
