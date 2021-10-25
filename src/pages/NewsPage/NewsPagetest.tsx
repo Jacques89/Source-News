@@ -1,8 +1,8 @@
-import NewsContainer from './NewsContainer'
+import NewsContainer from './NewsPage'
 
 import { render, screen } from '@testing-library/react'
 
-describe('NewsContainer', () => {
+describe('NewsPage', () => {
   const news = [
     {
       title: 'test title 1',

@@ -6,7 +6,7 @@ const NewsBox = ({ article }: NewsBoxProps) => {
       <h3 className='title'>{article.title}</h3>
       <div
         className='image'
-        style={{ backgroundImage: `url("${article.img}")` }}
+        style={{ backgroundImage: `url('${article.img}')` }}
       ></div>
       <p className='description'>{article.content}</p>
       <p className='link'>

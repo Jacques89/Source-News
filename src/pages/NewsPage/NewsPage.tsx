@@ -2,14 +2,14 @@ import { useState, useEffect, ReactElement } from 'react'
 
 import { useSpring, animated } from 'react-spring'
 
-import NewsBox from '../../components/NewsBox/NewsBox'
+import NewsBox from '../../features/NewsBox/NewsBox'
 import '../../styles/NewsContainer.scss'
 
 const NewsContainer = ({
   news,
   category,
   userInput
-}: NewsContainerProps): ReactElement => {
+}: NewsPageProps): ReactElement => {
   const [articles, setArticles] = useState<string>('')
   const articleAnimation = useSpring({
     opacity: 1,
@@ -26,7 +26,7 @@ const NewsContainer = ({
               .indexOf(userInput.toLocaleLowerCase()) !== -1
         )
         .filter(
-          (article: { category: string | undefined }) =>
+          (article: { category: string }) =>
             article.category === category
         )
         .map(
@@ -37,7 +37,7 @@ const NewsContainer = ({
               content: string
               source_url: string
             },
-            i: React.Key | null | undefined
+            i: React.Key
           ) => (
             <animated.div style={articleAnimation} className='box' key={i}>
               <NewsBox key={i} article={article} />

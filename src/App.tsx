@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 
 import './styles/App.scss'
 
-import Navigation from './components/Navigation/Navigation'
-import NewsContainer from './containers/NewsContainer/NewsContainer'
-import LoadingPage from './components/LoadingPage/LoadingPage'
-import SearchInput from './components/SearchInput/SearchInput'
-import Footer from './components/Footer/Footer'
+import Navigation from './features/Navigation/Navigation'
+import NewsContainer from './pages/NewsPage/NewsPage'
+import LoadingPage from './features/LoadingPage/LoadingPage'
+import SearchInput from './features/SearchInput/SearchInput'
+import Footer from './features/Footer/Footer'
 
 require('dotenv').config()
 
