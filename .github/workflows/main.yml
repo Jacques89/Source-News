@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: install dependences
       - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install # will run `yarn install` command
+      - name: Run tests
       - uses: Borales/actions-yarn@v2.3.0
         with:
           cmd: test # will run `yarn test` command
