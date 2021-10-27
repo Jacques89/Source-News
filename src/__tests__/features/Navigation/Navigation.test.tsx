@@ -1,4 +1,4 @@
-import Navigation from './Navigation'
+import Navigation from '../../../features/Navigation/Navigation'
 
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

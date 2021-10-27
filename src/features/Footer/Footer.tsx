@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 
 import { FaGithubSquare } from 'react-icons/fa'
 import { FaLinkedin } from 'react-icons/fa'
-import '../../styles/Footer.scss'
+import 'styles/Footer.scss'
 
 const Footer = (): ReactElement => {
   return (

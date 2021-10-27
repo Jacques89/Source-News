@@ -1,4 +1,4 @@
-import SearchInput from './SearchInput'
+import SearchInput from '../../../features/SearchInput/SearchInput'
 
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

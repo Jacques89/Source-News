@@ -1,4 +1,4 @@
-import NewsBox from './NewsBox'
+import NewsBox from '../../../features/NewsBox/NewsBox'
 
 import { render, screen } from '@testing-library/react'
 

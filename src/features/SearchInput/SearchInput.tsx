@@ -3,7 +3,7 @@ import { ChangeEvent, ReactElement, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useSpring, animated } from 'react-spring'
 
-import '../../styles/SearchForm.scss'
+import 'styles/SearchForm.scss'
 
 const SearchInput = ({ handleSubmit }: SearchInputProps): ReactElement => {
   const [input, setInput] = useState<string>('')

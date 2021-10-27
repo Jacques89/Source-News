@@ -4,7 +4,7 @@ import { useSpring, animated } from 'react-spring'
 import { FaBars } from 'react-icons/fa'
 import { FaTimes } from 'react-icons/fa'
 
-import '../../styles/Navigation.scss'
+import 'styles/Navigation.scss'
 
 const Navigation = ({
   category,

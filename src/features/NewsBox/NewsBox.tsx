@@ -1,4 +1,4 @@
-import '../../styles/NewsBox.scss'
+import 'styles/NewsBox.scss'
 
 const NewsBox = ({ article }: NewsBoxProps) => {
   return (

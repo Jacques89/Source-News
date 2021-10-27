@@ -1,4 +1,4 @@
-import LoadingPage from './LoadingPage'
+import LoadingPage from '../../../features/LoadingPage/LoadingPage'
 
 import { render, screen } from '@testing-library/react'
 
