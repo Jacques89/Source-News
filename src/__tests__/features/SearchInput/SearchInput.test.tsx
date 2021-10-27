@@ -19,7 +19,7 @@ describe('SearchInput', () => {
 
   it('displays the correct placeholder text', () => {
     searchInputInit()
-    expect(screen.getByPlaceholderText('Search')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Search')).toBeTruthy()
   })
 
   it('successfully changes back to the placeholder text onSubmit', () => {
