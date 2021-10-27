@@ -13,8 +13,8 @@ describe('LoadingPage', () => {
 
   describe('if loading is true', () => {
     it('should render a loading message with a spinner', () => {
-      expect(screen.getByText('loading')).toBeTruthy()
-      expect(screen.getByTestId('spinner')).toBeTruthy()
+      expect(screen.getByText('loading')).toBeInTheDocument()
+      expect(screen.getByTestId('spinner')).toBeInTheDocument()
     })
   })
 })
