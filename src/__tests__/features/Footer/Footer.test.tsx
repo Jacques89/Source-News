@@ -11,6 +11,7 @@ describe('Footer', () => {
   })
   describe('Github Link and Icon', () => {
     it('displays GitHub icon', () => {
+      screen.debug()
       expect(screen.getByTestId('githubIcon')).toBeInTheDocument()
     })
     it('contains correct href value', () => {
