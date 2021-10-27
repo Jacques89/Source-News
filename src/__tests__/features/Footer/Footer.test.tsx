@@ -11,7 +11,7 @@ describe('Footer', () => {
   })
   describe('Github Link and Icon', () => {
     it('displays GitHub icon', () => {
-      expect(screen.getByTestId('githubIcon')).toBeTruthy()
+      expect(screen.getByTestId('githubIcon')).toBeInTheDocument()
     })
     it('contains correct href value', () => {
       const githubHref: string = 'https://github.com/jacques89'
@@ -22,7 +22,7 @@ describe('Footer', () => {
   })
   describe('LinkedIn Link and Icon', () => {
     it('displays LinkedIn Icon', () => {
-      expect(screen.getByTestId('linkedinIcon')).toBeTruthy()
+      expect(screen.getByTestId('linkedinIcon')).toBeInTheDocument()
     })
     it('contains correct href value', () => {
       const linkedinHref: string =
