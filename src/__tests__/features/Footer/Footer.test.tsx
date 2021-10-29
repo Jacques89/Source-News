@@ -1,4 +1,5 @@
 import Footer from '../../../features/Footer/Footer'
+import '@testing-library/jest-dom'
 
 import { render, screen } from '@testing-library/react'
 
@@ -11,7 +12,6 @@ describe('Footer', () => {
   })
   describe('Github Link and Icon', () => {
     it('displays GitHub icon', () => {
-      screen.debug()
       expect(screen.getByTestId('githubIcon')).toBeInTheDocument()
     })
     it('contains correct href value', () => {
