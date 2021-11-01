@@ -1,7 +1,14 @@
 import App from './App'
-import { setupFetchStub } from './test-utils/helpers/Fetch'
+import { setupFetchStub } from './test-utils/helpers/Fetch' 
 
 import { render, screen } from '@testing-library/react'
+
+type NewsProps = {
+  category: string
+  content: string
+  img: string
+  title: string
+}
 
 describe('App', () => {
   it('renders correctly', () => {
@@ -10,7 +17,8 @@ describe('App', () => {
   })
 })
 
-describe('API', () => {
+describe('API Request', () => {
+  // TODO refactor 
   beforeEach(() => {
     // Clear 
     const fetchSpy = jest.spyOn(global, 'fetch')
@@ -48,7 +56,7 @@ describe('API', () => {
     const fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(emptyData))
 
     const res: Response = await fetch(url)
-    const json = await res.json()
+    const json: Array<NewsProps> = await res.json()
     expect(json).toEqual({ news: emptyData })
     expect(fetchSpy).toHaveBeenCalledTimes(1)
   })

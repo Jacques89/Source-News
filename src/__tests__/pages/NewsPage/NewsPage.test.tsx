@@ -1,4 +1,4 @@
-import NewsPage from './NewsPage'
+import NewsPage from '../../../pages/NewsPage/NewsPage'
 
 import { render, screen } from '@testing-library/react'
 

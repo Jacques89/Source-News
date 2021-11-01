@@ -1,20 +1,15 @@
 import type { Config } from '@jest/types'
+const { defaults } = require('jest-config')
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
+  testEnvironment: 'jsdom',
   verbose: true,
-  testMatch: ['<rootDir>/**/__tests__/**/*(*.)+(test).+(tsx|ts)'],
-  setupFiles: ['dotenv/config'],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   setupFilesAfterEnv: ['./src/setupTests.ts'],
-  moduleFileExtensions: ['js', 'ts', 'tsx'],
-  collectCoverage: true,
-  coverageDirectory: 'target/coverage',
-  collectCoverageFrom: ['src/**/*.tsx'],
+  testMatch: ['<rootDir>/**/__tests__/**/*(*.)+(test).+(tsx|ts)', '<rootDir>/src/**/*(*.)+(test).+(tsx|ts)'],
   moduleNameMapper: {
-    '^.+\\.(css|scss)$': 'identity-obj-proxy',
-    '^.+\\.(png|svg|pdf|jpg|jpeg)$': 'jest-transform-stub',
-    '^@foo/(.*)': '<rootDir>/src/$1'
+    '^.+\\.(css|scss)$': 'identity-obj-proxy'
   }
 }
-
 export default config

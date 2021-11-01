@@ -8,7 +8,15 @@ import LoadingPage from './features/LoadingPage/LoadingPage'
 import SearchInput from './features/SearchInput/SearchInput'
 import Footer from './features/Footer/Footer'
 
+
 require('dotenv').config()
+
+type NewsProps = {
+  category: string
+  content: string
+  img: string
+  title: string
+}
 
 const App = () => {
   const [news, setNews] = useState<Array<NewsProps>>([])
