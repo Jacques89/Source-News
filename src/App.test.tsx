@@ -1,7 +1,14 @@
 import App from './App'
-import { setupFetchStub } from './test-utils/helpers/Fetch'
+import {
+  render,
+  screen,
+  act,
+  waitFor,
+  waitForElementToBeRemoved
+} from '@testing-library/react'
 
-import { render, screen } from '@testing-library/react'
+import 'isomorphic-fetch'
+import { setupFetchStub } from './test-utils/helpers/Fetch'
 
 type NewsProps = {
   category: string
@@ -11,8 +18,11 @@ type NewsProps = {
 }
 
 describe('App', () => {
-  it('renders correctly', () => {
-    render(<App />)
+  it('renders correctly', async () => {
+    act(() => {
+      render(<App />)
+    })
+    await waitForElementToBeRemoved(() => screen.queryByText(/loading/i))
     expect(screen.getByTestId('app')).toMatchSnapshot()
   })
 })
@@ -20,7 +30,7 @@ describe('App', () => {
 describe('API Request', () => {
   // TODO refactor
   beforeEach(() => {
-    global.fetch = jest.fn().mockImplementation(setupFetchStub(() => {}))
+    global.fetch = jest.fn().mockImplementation(setupFetchStub(() => [{}]))
     // Clear
     const fetchSpy = jest.spyOn(global, 'fetch')
     fetchSpy.mockClear()

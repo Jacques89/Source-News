@@ -8,7 +8,6 @@ import LoadingPage from './features/LoadingPage/LoadingPage'
 import SearchInput from './features/SearchInput/SearchInput'
 import Footer from './features/Footer/Footer'
 
-
 require('dotenv').config()
 
 type NewsProps = {
@@ -29,7 +28,7 @@ const App = () => {
   const dataFetch = async () => {
     try {
       const request: Response = await fetch(newsAPI)
-      let response = await request.json()
+      const response = await request.json()
       setNews(response)
       setLoading(false)
       return response
