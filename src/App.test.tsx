@@ -3,7 +3,6 @@ import {
   render,
   screen,
   act,
-  waitFor,
   waitForElementToBeRemoved
 } from '@testing-library/react'
 
