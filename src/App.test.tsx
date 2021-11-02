@@ -1,5 +1,5 @@
 import App from './App'
-import { setupFetchStub } from './test-utils/helpers/Fetch' 
+import { setupFetchStub } from './test-utils/helpers/Fetch'
 
 import { render, screen } from '@testing-library/react'
 
@@ -18,9 +18,10 @@ describe('App', () => {
 })
 
 describe('API Request', () => {
-  // TODO refactor 
+  // TODO refactor
   beforeEach(() => {
-    // Clear 
+    global.fetch = jest.fn().mockImplementation(setupFetchStub(() => {}))
+    // Clear
     const fetchSpy = jest.spyOn(global, 'fetch')
     fetchSpy.mockClear()
   })
@@ -43,17 +44,21 @@ describe('API Request', () => {
   const url: string = `${process.env.REACT_APP_NEWS_API}`
 
   it('fetches data from API successfully', async () => {
-    const fakeData: Object[] = mockNewsResponse
-    const fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(fakeData))
-    
+    const fakeData: Array<NewsProps> = mockNewsResponse
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockImplementation(setupFetchStub(fakeData))
+
     const res: Response = await fetch(url)
     const json: Array<NewsProps> = await res.json()
     expect(json).toEqual({ news: fakeData })
     expect(fetchSpy).toHaveBeenCalledTimes(1)
   })
   it('returns an empty array if no data is available from API', async () => {
-    const emptyData: Object[] = []
-    const fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(setupFetchStub(emptyData))
+    const emptyData: Array<NewsProps> = []
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockImplementation(setupFetchStub(emptyData))
 
     const res: Response = await fetch(url)
     const json: Array<NewsProps> = await res.json()
