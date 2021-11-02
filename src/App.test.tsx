@@ -22,14 +22,13 @@ describe('App', () => {
       render(<App />)
     })
     await waitForElementToBeRemoved(() => screen.queryByText(/loading/i))
-    expect(screen.getByTestId('app')).toMatchSnapshot()
+    expect(screen.getByTestId('app')).toBeInTheDocument()
   })
 })
 
 describe('API Request', () => {
-  // TODO refactor
   beforeEach(() => {
-    global.fetch = jest.fn().mockImplementation(setupFetchStub(() => [{}]))
+    global.fetch = jest.fn().mockImplementation(setupFetchStub(mockNewsResponse))
     // Clear
     const fetchSpy = jest.spyOn(global, 'fetch')
     fetchSpy.mockClear()
@@ -50,7 +49,7 @@ describe('API Request', () => {
     }
   ]
 
-  const url: string = `${process.env.REACT_APP_NEWS_API}`
+  const url: string = `${process.env.REACT_APP_TEST_URL}`
 
   it('fetches data from API successfully', async () => {
     const fakeData: Array<NewsProps> = mockNewsResponse
