@@ -18,7 +18,7 @@ type NewsProps = {
 }
 
 describe('App', () => {
-  //TODO reinitialise 
+  //TODO reinitialise
   // it('renders correctly', async () => {
   //   act(() => {
   //     render(<App />)
@@ -26,7 +26,7 @@ describe('App', () => {
   //   await act(async () => {
   //     await waitForElementToBeRemoved(() => expect(screen.queryByText(/loading/i)))
   //   })
-  //   waitFor(() => expect(screen.getByTestId('app')).toBeInTheDocument()) 
+  //   waitFor(() => expect(screen.getByTestId('app')).toBeInTheDocument())
   // })
   describe('API Request', () => {
     beforeEach(() => {
@@ -79,3 +79,4 @@ describe('App', () => {
     })
   })
 })
+
