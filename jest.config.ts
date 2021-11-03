@@ -2,6 +2,9 @@ import type { Config } from '@jest/types'
 import { defaults } from 'jest-config'
 
 const config: Config.InitialOptions = {
+  transform: {
+    ".(ts|tsx)": "ts-jest"
+  },
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   verbose: true,
