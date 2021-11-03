@@ -3,7 +3,7 @@ import {
   render,
   screen,
   act,
-  waitForElementToBeRemoved
+  waitFor
 } from '@testing-library/react'
 
 import 'isomorphic-fetch'
@@ -22,9 +22,9 @@ describe('App', () => {
       render(<App />)
     })
     await act(async () => {
-      await waitForElementToBeRemoved(() => screen.queryByText(/loading/i))
+      await waitFor(() => expect(screen.queryByText(/loading/i)).toBeInTheDocument())
     })
-    expect(screen.getByTestId('app')).toBeInTheDocument()
+    await waitFor(() => expect(screen.getByTestId('app')).toBeInTheDocument()) 
   })
   describe('API Request', () => {
     beforeEach(() => {
