@@ -1,5 +1,5 @@
 import type { Config } from '@jest/types'
-const { defaults } = require('jest-config')
+import { defaults } from 'jest-config'
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
