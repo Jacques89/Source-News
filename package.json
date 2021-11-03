@@ -19,7 +19,7 @@
     "dev": "react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "jest --watchAll --config=./jest.config.ts",
+    "test": "jest --watchAll --config=./jest.config.ts --setupFilesAfterEnv=./src/setupTests.ts",
     "eject": "react-scripts eject",
     "heroku-postbuild": "yarn run build"
   },
