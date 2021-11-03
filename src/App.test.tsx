@@ -22,7 +22,7 @@ describe('App', () => {
       render(<App />)
     })
     await act(async () => {
-      await waitForElementToBeRemoved(screen.queryByText(/loading/i))
+      await waitForElementToBeRemoved(() => screen.queryByText(/loading/i))
     })
     expect(screen.getByTestId('app')).toBeInTheDocument()
   })
