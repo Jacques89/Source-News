@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free-regular": "^5.0.13",
-    "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
-    "node-sass": "6.0.1",
+    "isomorphic-fetch": "^3.0.0",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -19,7 +19,7 @@
     "dev": "react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --env=jsdom",
+    "test": "jest --detectOpenHandles --config=./jest.config.ts",
     "eject": "react-scripts eject",
     "heroku-postbuild": "yarn run build"
   },
@@ -39,15 +39,20 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.4.2",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.1",
-    "@types/react": "^17.0.30",
-    "@types/react-dom": "^17.0.9",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "@types/testing-library__jest-dom": "^5.14.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "jest-fetch-mock": "^3.0.3",
     "prettier": "^2.4.1",
     "react-test-renderer": "^17.0.2",
+    "ts-jest": "^26.5.6",
+    "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
   }
 }

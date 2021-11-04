@@ -2,13 +2,20 @@ import { useState, useEffect } from 'react'
 
 import './styles/App.scss'
 
-import Navigation from './components/Navigation/Navigation'
-import NewsContainer from './containers/NewsContainer/NewsContainer'
-import LoadingPage from './components/LoadingPage/LoadingPage'
-import SearchInput from './components/SearchInput/SearchInput'
-import Footer from './components/Footer/Footer'
+import Navigation from './features/Navigation/Navigation'
+import NewsContainer from './pages/NewsPage/NewsPage'
+import LoadingPage from './features/LoadingPage/LoadingPage'
+import SearchInput from './features/SearchInput/SearchInput'
+import Footer from './features/Footer/Footer'
 
 require('dotenv').config()
+
+type NewsProps = {
+  category: string
+  content: string
+  img: string
+  title: string
+}
 
 const App = () => {
   const [news, setNews] = useState<Array<NewsProps>>([])
@@ -16,16 +23,16 @@ const App = () => {
   const [loading, setLoading] = useState<boolean>(true)
   const [userInput, setUserInput] = useState<string>('')
 
-  const newsAPI = `${process.env.REACT_APP_NEWS_API}`
+  const newsAPI: string = `${process.env.REACT_APP_NEWS_API}`
 
   const dataFetch = async () => {
     try {
-      const request = await fetch(newsAPI)
-      let response = await request.json()
+      const request: Response = await fetch(newsAPI)
+      const response = await request.json()
       setNews(response)
       setLoading(false)
       return response
-    } catch (error) {
+    } catch (error: unknown) {
       console.log('ERROR:', error)
     }
   }
