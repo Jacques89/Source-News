@@ -46,7 +46,7 @@ describe('NavigationBar', () => {
       )
     })
 
-    it('changes category when a category is clicked', () => {
+    it('changes category when a category in the menu is clicked', () => {
       render(
         <Navigation menuOpen={!menuOpen} changeCategory={changeCategory} />
       )

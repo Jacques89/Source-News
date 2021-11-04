@@ -6,6 +6,7 @@ const config: Config.InitialOptions = {
   transform: {
     '.(ts|tsx)': 'ts-jest'
   },
+  collectCoverage: true,
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   verbose: true,
