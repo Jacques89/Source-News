@@ -38,6 +38,10 @@ describe('App', () => {
       fetchSpy.mockClear()
     })
 
+    afterAll(() => {
+      console.log('All Tests ran and completed')
+    })
+
     const mockNewsResponse: Array<NewsProps> = [
       {
         category: 'World',
