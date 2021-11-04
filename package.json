@@ -19,7 +19,7 @@
     "dev": "react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
-    "test": "jest --watchAll --forceExit --config=./jest.config.ts",
+    "test": "jest --forceExit --watchAll  --config=./jest.config.ts",
     "eject": "react-scripts eject",
     "heroku-postbuild": "yarn run build"
   },
