@@ -38,10 +38,6 @@ describe('App', () => {
       fetchSpy.mockClear()
     })
 
-    afterAll(() => {
-      console.log('All Tests ran and completed')
-    })
-
     const mockNewsResponse: Array<NewsProps> = [
       {
         category: 'World',
@@ -70,6 +66,7 @@ describe('App', () => {
       expect(json).toEqual({ news: fakeData })
       expect(fetchSpy).toHaveBeenCalledTimes(1)
     })
+  
     it('returns an empty array if no data is available from API', async () => {
       const emptyData: Array<NewsProps> = []
       const fetchSpy = jest
