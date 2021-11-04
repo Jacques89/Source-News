@@ -9,7 +9,7 @@ describe('NavigationBar', () => {
 
   it('renders correctly', () => {
     render(<Navigation changeCategory={changeCategory} />)
-    expect(screen.getByTestId('navigation')).toMatchSnapshot()
+    expect(screen.getByTestId('navigation')).toBeInTheDocument()
   })
 
   describe('Heading and Sub-Heading', () => {

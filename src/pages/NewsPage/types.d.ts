@@ -3,3 +3,8 @@ type NewsPageProps = {
   category: string
   userInput: string
 }
+
+type NewsTitleCategory = {
+  title: string
+  category: string
+}

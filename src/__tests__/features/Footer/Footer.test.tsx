@@ -8,7 +8,7 @@ describe('Footer', () => {
     render(<Footer />)
   })
   it('renders correctly', () => {
-    expect(screen.getByTestId('footer')).toMatchSnapshot()
+    expect(screen.getByTestId('footer')).toBeInTheDocument()
   })
   describe('Github Link and Icon', () => {
     it('displays GitHub icon', () => {

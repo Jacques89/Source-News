@@ -15,6 +15,7 @@ describe('SearchInput', () => {
   }
   it('renders correctly', () => {
     render(<SearchInput handleSubmit={handleSubmit} />)
+    expect(screen.getByTestId('searchInput')).toBeInTheDocument()
   })
 
   it('displays the correct placeholder text', () => {

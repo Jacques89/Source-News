@@ -52,7 +52,7 @@ const NewsPage = ({
   const noNewsUserInput = `Sorry, there is no news currently available for ${userInput} in ${category}`
 
   return (
-    <div className='container'>
+    <div data-testid='newsPage' className='container'>
       {articles && !userInput && articles.length === 0 ? (
         <div className='no-news'>{noNewsCategory}</div>
       ) : userInput && articles.length === 0 ? (

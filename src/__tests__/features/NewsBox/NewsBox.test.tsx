@@ -3,7 +3,7 @@ import NewsBox from '../../../features/NewsBox/NewsBox'
 import { render, screen } from '@testing-library/react'
 
 describe('NewsBox', () => {
-  const mockProps: NewsBoxProps = {
+  const props: NewsBoxProps = {
     article: {
       title: 'article-title',
       img: 'news.png',
@@ -13,16 +13,20 @@ describe('NewsBox', () => {
   }
 
   it('renders correctly', () => {
-    render(<NewsBox {...mockProps} />)
-    expect(screen.getByRole('article')).toMatchSnapshot()
+    render(<NewsBox {...props} />)
+    expect(screen.getByRole('article')).toBeInTheDocument()
+    expect(screen.getByText(/article-title/i)).toBeInTheDocument()
+    expect(screen.getByTestId('img')).toBeInTheDocument()
+    expect(screen.getByText(/News description/i)).toBeInTheDocument()
+    expect(screen.getByText(/Continue reading/i)).toBeInTheDocument()
   })
   describe('Continue Reading link', () => {
-    it('should contain the correct href value', () => {
+    it('should contain the correct external href value', () => {
       const { getByText } = render(
-        <a href={mockProps.article.source_url}>Continue reading</a>
+        <a href={props.article.source_url}>Continue reading</a>
       )
       expect(getByText('Continue reading').getAttribute('href')).toBe(
-        mockProps.article.source_url
+        props.article.source_url
       )
     })
   })

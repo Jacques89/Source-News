@@ -3,7 +3,7 @@ import NewsPage from '../../../pages/NewsPage/NewsPage'
 import { render, screen } from '@testing-library/react'
 
 describe('NewsPage', () => {
-  const news = [
+  const news: Array<NewsTitleCategory> = [
     {
       title: 'test title 1',
       category: 'technology'
@@ -14,38 +14,45 @@ describe('NewsPage', () => {
     }
   ]
 
-  const props = {
+  const props: NewsPageProps = {
     news: news,
     category: '',
     userInput: ''
   }
 
-  const noNewsCategoryProps = {
+  const noNewsCategoryProps: NewsPageProps = {
     news: [],
     category: 'technology',
     userInput: ''
   }
 
-  const noNewsUserInputProps = {
+  const noNewsUserInputProps: NewsPageProps = {
     news: news,
     category: 'technology',
     userInput: 'Master coding in 30 mins'
   }
 
-  it('renders the NewsContainer correctly', () => {
-    const NewsPageRerender = render(<NewsPage {...props} />)
-    expect(NewsPageRerender).toMatchSnapshot()
+  it('renders correctly', () => {
+    render(<NewsPage {...props} />)
+    expect(screen.getByTestId('newsPage')).toBeInTheDocument()
   })
 
-  it('should render an error message when no news is available from user input', () => {
-    const noNewsUserInputMock = `Sorry, there is no news currently available for ${noNewsUserInputProps.userInput} in ${noNewsUserInputProps.category}`
-    render(<NewsPage {...noNewsUserInputProps} />)
-    expect(screen.getByText(noNewsUserInputMock)).toBeInTheDocument()
+  describe('User Input', () => {
+    describe('User Input Search', () => {
+      it('should render a message when no news is available from user input within a category', () => {
+        const noNewsUserInputMock = `Sorry, there is no news currently available for ${noNewsUserInputProps.userInput} in ${noNewsUserInputProps.category}`
+        render(<NewsPage {...noNewsUserInputProps} />)
+        expect(screen.getByText(noNewsUserInputMock)).toBeInTheDocument()
+      })
+    })
   })
-
-  it('should render an error message when no news is available in category selection', () => {
-    const noNewsCategoryMock = `Sorry, there is no news in ${noNewsCategoryProps.category} currently available`
-    render(<NewsPage {...noNewsCategoryProps} />)
-    expect(screen.getByText(noNewsCategoryMock)).toBeInTheDocument()
+  describe('Category Selection', () => {
+    describe('No news within category', () => {
+      it('should render a message when no news is available in category', () => {
+        const noNewsCategoryMock = `Sorry, there is no news in ${noNewsCategoryProps.category} currently available`
+        render(<NewsPage {...noNewsCategoryProps} />)
+        expect(screen.getByText(noNewsCategoryMock)).toBeInTheDocument()
+      })
+    })
   })
 })

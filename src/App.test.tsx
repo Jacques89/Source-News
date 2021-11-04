@@ -37,7 +37,7 @@ describe('App', () => {
       const fetchSpy = jest.spyOn(global, 'fetch')
       fetchSpy.mockClear()
     })
-
+    const url: string = `${process.env.REACT_APP_TEST_URL}`
     const mockNewsResponse: Array<NewsProps> = [
       {
         category: 'World',
@@ -53,31 +53,31 @@ describe('App', () => {
       }
     ]
 
-    const url: string = `${process.env.REACT_APP_TEST_URL}`
+    describe('Success', () => {
+      it('fetches data from API successfully', async () => {
+        const fakeData: Array<NewsProps> = mockNewsResponse
+        const fetchSpy = jest
+          .spyOn(global, 'fetch')
+          .mockImplementation(setupFetchStub(fakeData))
 
-    it('fetches data from API successfully', async () => {
-      const fakeData: Array<NewsProps> = mockNewsResponse
-      const fetchSpy = jest
-        .spyOn(global, 'fetch')
-        .mockImplementation(setupFetchStub(fakeData))
-
-      const res: Response = await fetch(url)
-      const json: Array<NewsProps> = await res.json()
-      expect(json).toEqual({ news: fakeData })
-      expect(fetchSpy).toHaveBeenCalledTimes(1)
+        const res: Response = await fetch(url)
+        const json: Array<NewsProps> = await res.json()
+        expect(json).toEqual({ news: fakeData })
+        expect(fetchSpy).toHaveBeenCalledTimes(1)
+      })
     })
-  
-    it('returns an empty array if no data is available from API', async () => {
-      const emptyData: Array<NewsProps> = []
-      const fetchSpy = jest
-        .spyOn(global, 'fetch')
-        .mockImplementation(setupFetchStub(emptyData))
+    describe('Failure', () => {
+      it('returns an empty array if no data is available from API', async () => {
+        const emptyData: Array<NewsProps> = []
+        const fetchSpy = jest
+          .spyOn(global, 'fetch')
+          .mockImplementation(setupFetchStub(emptyData))
 
-      const res: Response = await fetch(url)
-      const json: Array<NewsProps> = await res.json()
-      expect(json).toEqual({ news: emptyData })
-      expect(fetchSpy).toHaveBeenCalledTimes(1)
+        const res: Response = await fetch(url)
+        const json: Array<NewsProps> = await res.json()
+        expect(json).toEqual({ news: emptyData })
+        expect(fetchSpy).toHaveBeenCalledTimes(1)
+      })
     })
   })
 })
-
