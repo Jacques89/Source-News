@@ -27,11 +27,11 @@ const App = () => {
 
   const dataFetch = async () => {
     try {
-      const request: Response = await fetch(newsAPI)
-      const response = await request.json()
-      setNews(response)
+      // const request: Response = await fetch(newsAPI)
+      // const response = await request.json()
+      // setNews(response)
       setLoading(false)
-      return response
+      // return response
     } catch (error: unknown) {
       console.log('ERROR:', error)
     }

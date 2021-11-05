@@ -1,7 +1,7 @@
 .search-bar {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 
   input {
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     border: none;
     margin-left: 0.5rem;
     width: 12rem;
@@ -29,8 +29,8 @@
 
 @media screen and (max-width: 670px) {
   .search-bar {
-    top: 150px;
-    left: 10px;
+    top: 9.375rem;
+    left: 0.625rem;
 
     input {
       width: 8rem;
@@ -40,8 +40,8 @@
 
 @media screen and (max-width: 420px) {
   .search-bar {
-    top: 150px;
-    left: 10px;
+    top: 9.375rem;
+    left: 0.625rem;
   
     .input {
       width: 8rem;
@@ -51,8 +51,8 @@
 
 @media screen and (max-width: 320px) {
   .search-bar {
-    top: 150px;
-    left: 10px;
+    top: 9.375rem;
+    left: 0.625rem;
   
     .input {
       width: 8rem;

@@ -20,6 +20,7 @@
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "jest --detectOpenHandles --config=./jest.config.ts",
+    "test:watch": "jest --watchAll --detectOpenHandles --config=./jest.config.ts",
     "eject": "react-scripts eject",
     "heroku-postbuild": "yarn run build"
   },
