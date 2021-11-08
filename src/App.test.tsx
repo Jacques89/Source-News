@@ -8,7 +8,7 @@
 // } from '@testing-library/react'
 
 import 'isomorphic-fetch'
-import { setupFetchStub } from './test-utils/helpers/Fetch'
+import { fetchStub } from './test-utils/helpers/Fetch'
 
 type NewsProps = {
   category: string
@@ -32,7 +32,7 @@ describe('App', () => {
     beforeEach(() => {
       global.fetch = jest
         .fn()
-        .mockImplementation(setupFetchStub(mockNewsResponse))
+        .mockImplementation(fetchStub(mockNewsResponse))
       // Clear
       const fetchSpy = jest.spyOn(global, 'fetch')
       fetchSpy.mockClear()
@@ -58,10 +58,11 @@ describe('App', () => {
         const fakeData: Array<NewsProps> = mockNewsResponse
         const fetchSpy = jest
           .spyOn(global, 'fetch')
-          .mockImplementation(setupFetchStub(fakeData))
+          .mockImplementation(fetchStub(fakeData))
 
         const res: Response = await fetch(url)
         const json: Array<NewsProps> = await res.json()
+        console.log(json)
         expect(json).toEqual({ news: fakeData })
         expect(fetchSpy).toHaveBeenCalledTimes(1)
       })
@@ -71,7 +72,7 @@ describe('App', () => {
         const emptyData: Array<NewsProps> = []
         const fetchSpy = jest
           .spyOn(global, 'fetch')
-          .mockImplementation(setupFetchStub(emptyData))
+          .mockImplementation(fetchStub(emptyData))
 
         const res: Response = await fetch(url)
         const json: Array<NewsProps> = await res.json()

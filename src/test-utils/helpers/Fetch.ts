@@ -1,4 +1,4 @@
-export function setupFetchStub(news: Object) {
+export function fetchStub(news: Object) {
   return function fetchStub(_url: RequestInfo) {
     return new Promise<any>((resolve) => {
       resolve({

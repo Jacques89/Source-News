@@ -19,6 +19,7 @@ type NewsProps = {
 
 const App = () => {
   const [news, setNews] = useState<Array<NewsProps>>([])
+  const [error, setError] = useState<any>(null)
   const [category, setCategory] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(true)
   const [userInput, setUserInput] = useState<string>('')
@@ -31,10 +32,13 @@ const App = () => {
       // const request: Response = await fetch(newsAPI)
       // const response = await request.json()
       // setNews(response)
-      setLoading(false)
+      setLoading(true)
       // return response
     } catch (error: unknown) {
       console.log('ERROR:', error)
+      setError(error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -56,6 +60,7 @@ const App = () => {
     <div data-testid='app'>
       <Navigation changeCategory={changeCategory} category={category} />
       <SearchInput handleSubmit={handleSubmit} />
+      {error ? <span> Error: {error} </span>: null}
       {news.length > 1 ? (
         <NewsContainer news={news} category={category} userInput={userInput} />
       ) : null}
