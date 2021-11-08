@@ -26,6 +26,7 @@ const App = () => {
   const newsAPI: string = `${process.env.REACT_APP_NEWS_API}`
 
   const dataFetch = async () => {
+    // TODO reinitialise when API data limit is reset
     try {
       // const request: Response = await fetch(newsAPI)
       // const response = await request.json()

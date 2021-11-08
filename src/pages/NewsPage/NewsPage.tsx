@@ -3,7 +3,7 @@ import { useState, useEffect, ReactElement } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 import NewsBox from '../../features/NewsBox/NewsBox'
-import 'styles/NewsContainer.scss'
+import 'styles/NewsPage.scss'
 
 const NewsPage = ({
   news,
